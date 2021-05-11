@@ -4,9 +4,11 @@
 ***
   
 <p>About the project <p>
+ 
+##### ㅇ
 
 ```
-##### We aim to develop Python-based data analysis software
+We aim to develop Python-based data analysis software
 The goal is to develop software that can analyze wafer scale data in detail.
 
 At first,
