@@ -2,8 +2,8 @@
 <h1> SBBFU Project  <h1> 
   
 <h2>About the project <h2>
-```
-We aim to develop Python-based data analysis software
+
+```We aim to develop Python-based data analysis software
 The goal is to develop software that can analyze wafer scale data in detail.
 
 At first,
@@ -23,9 +23,9 @@ Finally, the final report The final goal is to make documentation about the task
 Please put the data in the 'Data' folder
 specify the file path
 Run the Run.py
-```
+
 --------------
 <h2> Run file description <h2>
 
 
-<h2> <h2>
+<h2> Description of the Run file feature <h2>
