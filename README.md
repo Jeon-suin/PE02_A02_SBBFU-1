@@ -6,8 +6,7 @@
 <p>About the project <p>
  
 #####
-```
-We aim to develop Python-based data analysis software
+> We aim to develop Python-based data analysis software
 The goal is to develop software that can analyze wafer scale data in detail.
 
 At first,
@@ -34,11 +33,8 @@ Please put the data in the 'Data' folder
 specify the file path
 Run the Run.py 
 
-```
 
 ***
-
-+ ㅇ
 
 <h2> Run file description <h2>
 
