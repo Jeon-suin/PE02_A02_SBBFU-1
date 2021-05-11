@@ -16,6 +16,7 @@
 > + Lot
 > + Wafer
 > + Die row & colum
+> 
 > We can analyze the selected data by specifying specific elements    
 > In order to develop such analysis software, 
 > a black box(software) that implments this function is created to solve the customer's request.
