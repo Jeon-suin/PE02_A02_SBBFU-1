@@ -3,7 +3,7 @@
  
 ***
   
-<p>About the project <p>
+<h2>About the project <h2>
  
 #####
 > We aim to develop Python-based data analysis software
