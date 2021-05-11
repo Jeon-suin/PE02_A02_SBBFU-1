@@ -1,7 +1,7 @@
 <h6>PE02_A02<h6>
 <h1> SBBFU Project  <h1> 
   
-<h2>About the project <h2>
+<p>About the project <p>
 
 ```We aim to develop Python-based data analysis software
 The goal is to develop software that can analyze wafer scale data in detail.
