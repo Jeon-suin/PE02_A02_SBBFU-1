@@ -5,7 +5,8 @@
   
 <p>About the project <p>
 
-```<p>We aim to develop Python-based data analysis software
+```
+<h6> We aim to develop Python-based data analysis software
 The goal is to develop software that can analyze wafer scale data in detail.
 
 At first,
@@ -24,7 +25,8 @@ Finally, the final report The final goal is to make documentation about the task
 
 Please put the data in the 'Data' folder
 specify the file path
-Run the Run.py<p>
+Run the Run.py 
+<h6>
 ```
 
 ***
