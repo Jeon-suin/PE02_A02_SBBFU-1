@@ -67,3 +67,6 @@
   >- Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
   >- Save this data frome in csv format in the 'Result' folder.
  
+ 
+ ![캡처](https://user-images.githubusercontent.com/80964488/117802539-903ec680-b290-11eb-969f-6fd459a8d594.PNG)
+
