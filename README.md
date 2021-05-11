@@ -1,5 +1,6 @@
 <h6>PE02_A02<h6>
-<h1> SBBFU Project  <h1> 
+<h1> SBBFU Project <h1>
+***
   
 <p>About the project <p>
 
