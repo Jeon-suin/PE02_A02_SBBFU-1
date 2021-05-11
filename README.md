@@ -22,9 +22,10 @@ Finally, the final report The final goal is to make documentation about the task
 
 Please put the data in the 'Data' folder
 specify the file path
-Run the Run.py```
+Run the Run.py
+```
 
-<hr/>
+***
 <h2> Run file description <h2>
 
 
