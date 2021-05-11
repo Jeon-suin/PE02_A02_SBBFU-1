@@ -47,6 +47,8 @@
  >Data is processed by selecting only files with the filename "LMZ"
  >Load the module that processes and fits raw data and the module that makes the data parsed from xml file into a csv file, respectively.
 
+***
+
 
 <h2> Description of the module file feature <h2>
 
