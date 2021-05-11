@@ -49,15 +49,15 @@
 
 
 <h2> Description of the module file feature <h2>
- 
+ ##### 
  <h3> Fitting module <h3>
- #####
+
   -   The graph is drawn by parsing the raw data of Wavelenthsweep, IL, Current, and Voltage in the xml file.
   -   The fitting of parsing a raw data and displays the data value y-axis corresponding to x-axis by the customer and the desired R-squared, etc. and stored in the graph to visualize the image.
  
 
  <h3> csv module <h3>
- #####
+
   - Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
   - Save this data frome in csv format in the 'Result' folder.
  
