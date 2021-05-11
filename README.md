@@ -61,7 +61,7 @@
 ![P184640_D08_(0,2)_GORILLA5_DCM_LMZC xml](https://user-images.githubusercontent.com/80964488/117802229-3211e380-b290-11eb-81dc-c5e460009392.png)
 
 
- <h3> csv module <h3>
+ <h3> CSV module <h3>
  
 #####
   >- Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
