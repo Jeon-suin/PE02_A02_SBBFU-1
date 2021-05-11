@@ -39,4 +39,4 @@
 <h2> Run file description <h2>
 
 
-<h2> Description of the Run file feature <h2>
+<h2> Description of the module file feature <h2>
