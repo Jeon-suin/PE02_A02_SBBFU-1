@@ -24,6 +24,7 @@
 > In the software,
 > We process the raw data and print it out. 
 > We show the processed data as a 2*3 figure and save the file. 
+> 
 > In addition, it creates an Excel csv file that can analyze varous 
 > xml files as a result file and makes a dataframe that can be compared simply.
 >
