@@ -8,6 +8,18 @@ from numpy import exp
 import statsmodels.api as sm
 import os
 
+
+def poly(x, y, degree):
+    coeffs = np.polyfit(x, y, degree)
+    # r-squared
+    p = np.poly1d(coeffs)
+    yhat = p(x)
+    ybar = np.sum(y) / len(y)  # or sum(y)/len(y)
+    ssreg = np.sum((yhat - ybar) ** 2)  # or sum([ (yihat - ybar)**2 for yihat in yhat])
+    sstot = np.sum((y - ybar) ** 2)  # or sum([ (yi - ybar)**2 for yi in y])
+    results = ssreg / sstot
+    return results
+
 def fitting(filename):
 
     fp = open(filename, "r")
@@ -46,14 +58,14 @@ def fitting(filename):
 
     # I = a(exp(bV-1)+alpha
     def IV_fit(x, a, b):
-        return (a * (exp(b * x) - 1) + fit1(x))
+        return (a * (exp(x/b) - 1) + fit1(x))
 
     model = Model(IV_fit)
-    result = model.fit(y, x=x, a=10e-16, b=1 / 0.026)
+    result = model.fit(y, x=x, a=2.28 * 10 ** -15, b=0.0351)
 
     initial_list = []
     for i in x:
-        x_value = IV_fit(i, 10e-16, 1 / 0.026)
+        x_value = IV_fit(i, 2.28 * 10 ** -15, 0.0351)
         initial_list.append(x_value)
 
     initial = sm.add_constant(np.abs(y))
@@ -91,22 +103,32 @@ def fitting(filename):
 
     # 3번째 그래프
     plt.subplot2grid(grid, (0, 7), rowspan=5, colspan=5)
-
-    fitlabel = []
-
-    for i in range(1, 8):
-        fitlabel.append(i)  # append가 list에 뭔가를 추가
-
+    squared = []
     for i in range(1, 8):
         z = np.polyfit(refx, refy, i)
         f = np.poly1d(z)
         y_new = f(refx)
-        plt.plot(refx, y_new, label=fitlabel[i - 1])
-    plt.scatter(refx, refy, facecolors='none', edgecolors='k', alpha=0.03)
-    plt.legend(loc='lower center', ncol=4)
-    plt.title("Ref.-Raw data & fitting data", fontsize=15)
-    plt.xlabel("Wavelength [nm]")
-    plt.ylabel("Measured transmission [dB]")
+        plt.plot(refx, y_new, label=str(i) + 'th')
+        p = np.polyfit(refx, refy, i)
+        squared.append(p)
+
+    # R-squared
+    squ = 0.95
+    a = 0
+    for i in range(4, 7):
+        if squared[i] > squ:
+            squ = squared[i]
+            a = i
+        else:
+            squ = squ
+
+    plt.text(np.median(refx), y[600], "%dth R-squ = %s" % (a + 1, squ), horizontalalignment='center', size=9, color='r')
+    plt.legend(loc='lower center', ncol=3)
+    plt.scatter(refx, refy, facecolor='none', edgecolor='r', s=1, alpha=0.5)
+    plt.title('Transmission spectra - Processed and fitting')
+    plt.xlabel('Wavelength [nm]')
+    plt.ylabel('Measured transmission [dB]')
+
 
     # 4번째 그래프
     plt.subplot2grid(grid, (0, 14), rowspan=5, colspan=5)
@@ -172,31 +194,9 @@ def csv_mod(filename):
 
     initial = sm.add_constant(np.abs(y))
     result1 = sm.OLS(initial_list, initial).fit()
-
     IVdic = {y: x for x, y in zip(result.best_fit, x)}
-
     refx = list(map(float, soup.findAll('l')[6].string.split(',')))
     refy = list(map(float, soup.findAll('il')[6].string.split(',')))
-
-    # Calculate R-Squared
-    def poly(x, y, degree):
-        results = {}
-
-        coeffs = np.polyfit(x, y, degree)
-
-        # Polynomial Coefficients
-        # results['polynomial'] = coeffs.tolist()
-
-        # r-squared
-        p = np.poly1d(coeffs)
-        # fit values, and mean
-        yhat = p(x)  # or [p(z) for z in x]
-        ybar = np.sum(y) / len(y)  # or sum(y)/len(y)
-        ssreg = np.sum((yhat - ybar) ** 2)  # or sum([ (yihat - ybar)**2 for yihat in yhat])
-        sstot = np.sum((y - ybar) ** 2)  # or sum([ (yi - ybar)**2 for yi in y])
-        results = ssreg / sstot
-
-        return results
 
     Rsqref = poly(refx, refy, 6)
 
@@ -235,6 +235,11 @@ def csv_mod(filename):
     df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date,'process LMZ', '0.1', 'A02' ,'JoohanBae',Row, Column, error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0],IVdic[1.0]]
 
-    df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv", mode='a',
-              header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv"),
-              index=False)
+    # df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv", mode='a',
+    #           header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv"),
+    #           index=False)
+
+    if not os.path.exists("Test_Result.csv"):
+        df.to_csv("Test_Result.csv", mode='w',index=False)
+    else:
+        df.to_csv("Test_Result.csv", mode='a',index=False,header=False)
