@@ -6,7 +6,7 @@ from dateutil.parser import parse
 from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
-
+import os
 
 def fitting(filename):
 
@@ -29,7 +29,6 @@ def fitting(filename):
     y = list(map(float, current))
     y = np.abs(y)
 
-
     # 2번째 그래프
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
 
@@ -44,7 +43,6 @@ def fitting(filename):
     V = np.array(x[:10])
     fit1 = np.polyfit(V, C, 11)
     fit1 = np.poly1d(fit1)
-
 
     # I = a(exp(bV-1)+alpha
     def IV_fit(x, a, b):
@@ -110,28 +108,6 @@ def fitting(filename):
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 
-    # Calculate R-Squared
-    def poly(x, y, degree):
-        results = {}
-
-        coeffs = np.polyfit(x, y, degree)
-
-        # Polynomial Coefficients
-        # results['polynomial'] = coeffs.tolist()
-
-        # r-squared
-        p = np.poly1d(coeffs)
-        # fit values, and mean
-        yhat = p(x)  # or [p(z) for z in x]
-        ybar = np.sum(y) / len(y)  # or sum(y)/len(y)
-        ssreg = np.sum((yhat - ybar) ** 2)  # or sum([ (yihat - ybar)**2 for yihat in yhat])
-        sstot = np.sum((y - ybar) ** 2)  # or sum([ (yi - ybar)**2 for yi in y])
-        results = ssreg / sstot
-
-        return results
-
-    Rsqref = poly(refx, refy, 6)
-
     # 4번째 그래프
     plt.subplot2grid(grid, (0, 14), rowspan=5, colspan=5)
     for i in range(0, 6):
@@ -154,10 +130,6 @@ def fitting(filename):
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 
-
-    # mng = plt.get_current_fig_manager()
-    # mng.full_screen_toggle()
-
     plt.suptitle(filename)
     fig = plt.gcf()
     fig.set_size_inches((27,15), forward=False)
@@ -172,14 +144,7 @@ def csv_mod(filename):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
-    # label
-    wavelengthsweep = soup.findAll('wavelengthsweep')
-    label = []
-    for i in range(0, 7):
-        label.append(wavelengthsweep[i]['dcbias'])  # append가 list에 뭔가를 추가
-
     voltage = soup.findAll('voltage')[0].string.split(',')
-
     current = soup.findAll('current')[0].string.split(',')
 
     x = list(map(float, voltage))
@@ -210,34 +175,8 @@ def csv_mod(filename):
 
     IVdic = {y: x for x, y in zip(result.best_fit, x)}
 
-    # 1번째 그래프
-
-    for i in range(0, 7):
-        wavelength = soup.findAll('wavelengthsweep')[i]('l')[0].string
-        WL = wavelength.split(',')
-        wl = list(map(float, WL))
-
-        IL = soup.findAll('wavelengthsweep')[i]('il')[0].string
-        Il = IL.split(',')
-        il = list(map(float, Il))
-        if i < 6:
-            plt.scatter(wl, il, alpha=0.3, label=label[i] + 'V')
-        else:
-            plt.scatter(wl, il, alpha=0.3)
-
     refx = list(map(float, soup.findAll('l')[6].string.split(',')))
     refy = list(map(float, soup.findAll('il')[6].string.split(',')))
-
-    # 3번째 그래프
-    fitlabel = []
-
-    for i in range(1, 8):
-        fitlabel.append(i)  # append가 list에 뭔가를 추가
-
-    for i in range(1, 8):
-        z = np.polyfit(refx, refy, i)
-        f = np.poly1d(z)
-        y_new = f(refx)
 
     # Calculate R-Squared
     def poly(x, y, degree):
@@ -260,22 +199,6 @@ def csv_mod(filename):
         return results
 
     Rsqref = poly(refx, refy, 6)
-
-    # 4번째 그래프
-    for i in range(0, 6):
-        wavelength = soup.findAll('wavelengthsweep')[i]('l')[0].string
-        WL = wavelength.split(',')
-        wl = list(map(float, WL))
-
-        IL = soup.findAll('wavelengthsweep')[i]('il')[0].string
-        Il = IL.split(',')
-        il = list(map(float, Il))
-
-        x = wl
-        y = il - f(wl)
-
-        if i < 6:
-            plt.scatter(x, y, alpha=0.3, label=label[i] + 'V')
 
     Lot = soup.select('testsiteinfo')[0]['batch']
     Wafer = soup.select('testsiteinfo')[0]['wafer']
@@ -312,4 +235,6 @@ def csv_mod(filename):
     df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date,'process LMZ', '0.1', 'A02' ,'JoohanBae',Row, Column, error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0],IVdic[1.0]]
 
-    df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv", mode='a', header = False)
+    df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv", mode='a',
+              header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv"),
+              index=False)
