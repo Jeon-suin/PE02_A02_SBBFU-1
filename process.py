@@ -89,17 +89,17 @@ def fitting(filename):
         Il = IL.split(',')
         il = list(map(float, Il))
         if i < 6:
-            plt.scatter(wl, il, alpha=0.3, label=label[i] + 'V')
+            plt.scatter(wl, il, s = 1, alpha=0.3, label=label[i] + 'V')
         else:
-            plt.scatter(wl, il, alpha=0.3)
+            plt.scatter(wl, il, s = 1 ,alpha=0.3)
 
     plt.title("Transmission spectra - as measured", fontsize=15)
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
     plt.legend(loc='lower center', ncol=3)
 
-    refx = list(map(float, soup.findAll('l')[6].string.split(',')))
-    refy = list(map(float, soup.findAll('il')[6].string.split(',')))
+    refx = list(map(float, soup.findAll('wavelengthsweep')[6]('l')[0].string.split(',')))
+    refy = list(map(float, soup.findAll('wavelengthsweep')[6]('il')[0].string.split(',')))
 
     # 3번째 그래프
     plt.subplot2grid(grid, (0, 7), rowspan=5, colspan=5)
@@ -107,9 +107,10 @@ def fitting(filename):
     for i in range(1, 8):
         z = np.polyfit(refx, refy, i)
         f = np.poly1d(z)
-        y_new = f(refx)
-        plt.plot(refx, y_new, label=str(i) + 'th')
-        p = np.polyfit(refx, refy, i)
+        x_new = np.linspace(refx[0], refx[-1], 50)
+        y_new = f(x_new)
+        plt.plot(x_new, y_new, label=str(i) + 'th')
+        p = poly(refx, refy, i)
         squared.append(p)
 
     # R-squared
@@ -122,7 +123,7 @@ def fitting(filename):
         else:
             squ = squ
 
-    plt.text(np.median(refx), y[600], "%dth R-squ = %s" % (a + 1, squ), horizontalalignment='center', size=9, color='r')
+    plt.text(np.median(refx), refy[600], "%dth R-squ = %s" % (a + 1, squ), horizontalalignment='center', size=9, color='r')
     plt.legend(loc='lower center', ncol=3)
     plt.scatter(refx, refy, facecolor='none', edgecolor='r', s=1, alpha=0.5)
     plt.title('Transmission spectra - Processed and fitting')
@@ -145,7 +146,7 @@ def fitting(filename):
         y = il - f(wl)
 
         if i < 6:
-            plt.scatter(x, y, alpha=0.3, label=label[i] + 'V')
+            plt.scatter(x, y, s=1 , alpha=0.3, label=label[i] + 'V')
     plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0.05), ncol=3, loc='lower center')
 
     plt.title("Transmission spectra except ref.data", fontsize=15)
