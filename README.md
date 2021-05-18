@@ -55,7 +55,7 @@
  <h3> 1. Fitting module <h3>
  
 #####
-  >-   The graph is drawn by parsing the raw data of Wavelenthsweep, IL, Current, and Voltage in the xml file.
+  >-   The graph is drawn by parsing the raw data of Wavelengthsweep, IL, Current, and Voltage in the xml file.
   >-   The fitting of parsing a raw data and displays the data value y-axis corresponding to x-axis by the customer and the desired R-squared, etc. and stored in the graph to visualize the image.
  
 ![P184640_D08_(0,2)_GORILLA5_DCM_LMZC xml](https://user-images.githubusercontent.com/80964488/117802229-3211e380-b290-11eb-81dc-c5e460009392.png)
