@@ -96,7 +96,7 @@ def csv_mod(filename):
     #           header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv"),
     #           index=False)
 
-    if not os.path.exists("Test_Result.csv"):
-        df.to_csv("Test_Result.csv", mode='w',index=False)
+    if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
+        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
     else:
-        df.to_csv("Test_Result.csv", mode='a',index=False,header=False)
+        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)

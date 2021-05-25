@@ -59,4 +59,4 @@ def IVfitting(filename):
     fig.set_size_inches((27,15), forward=False)
 
 
-    plt.savefig(filename + '.png', bbox_inches = 'tight')
+    # plt.savefig(filename + '.png', bbox_inches = 'tight')

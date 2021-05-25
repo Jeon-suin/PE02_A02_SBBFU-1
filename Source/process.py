@@ -20,11 +20,11 @@ def poly(x, y, degree):
     results = ssreg / sstot
     return results
 
-def fitting(filename):
 
+def fitting(filename):
     fp = open(filename, "r")
 
-    soup = BeautifulSoup(fp,"html.parser")
+    soup = BeautifulSoup(fp, "html.parser")
 
     # label
     wavelengthsweep = soup.findAll('wavelengthsweep')
@@ -58,7 +58,7 @@ def fitting(filename):
 
     # I = a(exp(bV-1)+alpha
     def IV_fit(x, a, b):
-        return (a * (exp(x/b) - 1) + fit1(x))
+        return (a * (exp(x / b) - 1) + fit1(x))
 
     model = Model(IV_fit)
     result = model.fit(y, x=x, a=2.28 * 10 ** -15, b=0.0351)
@@ -89,9 +89,9 @@ def fitting(filename):
         Il = IL.split(',')
         il = list(map(float, Il))
         if i < 6:
-            plt.scatter(wl, il, s = 1, alpha=0.3, label=label[i] + 'V')
+            plt.scatter(wl, il, s=1, alpha=0.3, label=label[i] + 'V')
         else:
-            plt.scatter(wl, il, s = 1 ,alpha=0.3)
+            plt.scatter(wl, il, s=1, alpha=0.3)
 
     plt.title("Transmission spectra - as measured", fontsize=15)
     plt.xlabel("Wavelength [nm]")
@@ -116,20 +116,20 @@ def fitting(filename):
     # R-squared
     squ = 0.95
     a = 0
-    for i in range(5, 9):
+    for i in range(4, 7):
         if squared[i] > squ:
             squ = squared[i]
             a = i
         else:
             squ = squ
 
-    plt.text(np.median(refx), refy[600], "%dth R-squ = %s" % (a + 1, squ), horizontalalignment='center', size=9, color='r')
+    plt.text(np.median(refx), refy[600], "%dth R-squ = %s" % (a + 1, squ), horizontalalignment='center', size=9,
+             color='r')
     plt.legend(loc='lower center', ncol=3)
     plt.scatter(refx, refy, facecolor='none', edgecolor='r', s=1, alpha=0.5)
     plt.title('Transmission spectra - Processed and fitting')
     plt.xlabel('Wavelength [nm]')
     plt.ylabel('Measured transmission [dB]')
-
 
     # 4번째 그래프
     plt.subplot2grid(grid, (0, 14), rowspan=5, colspan=5)
@@ -146,26 +146,24 @@ def fitting(filename):
         y = il - f(wl)
 
         if i < 6:
-            plt.scatter(x, y, s=1 , alpha=0.3, label=label[i] + 'V')
+            plt.scatter(x, y, s=1, alpha=0.3, label=label[i] + 'V')
     plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0.05), ncol=3, loc='lower center')
 
     plt.title("Transmission spectra except ref.data", fontsize=15)
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 
-    plt.suptitle(filename)
+    #filename 수정_수업시간
+    fname = filename.split('\\')[-1][:-4]
+    plt.suptitle(fname)
     fig = plt.gcf()
-    fig.set_size_inches((27,15), forward=False)
-
-
-    plt.savefig(filename + '.png', bbox_inches = 'tight')
+    fig.set_size_inches((27, 15), forward=False)
 
 
 #######################################################################################################################
 #######################################################################################################################
 
 def csv_mod(filename):
-
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -230,20 +228,17 @@ def csv_mod(filename):
         if WL_analy[k]['symbol'] == 'WL':
             WL_list.append(WL_analy[k].text)
 
-    df = pd.DataFrame(columns=['Lot', 'Wafer', 'Mask', 'TestSite' , 'Name', 'Date', 'Script ID',
-     'Script Version', 'Script Owner', 'Operator', 'Row','Column',
-     'ErrorFlag', 'Error description','Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
-     'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
+    df = pd.DataFrame(columns=['Lot', 'Wafer', 'Mask', 'TestSite', 'Name', 'Date', 'Script ID',
+                               'Script Version', 'Script Owner', 'Operator', 'Row', 'Column',
+                               'ErrorFlag', 'Error description', 'Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
+                               'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
 
-    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date,'process LMZ', '0.1', 'A02' ,'JoohanBae',Row, Column, error_flag_list[0],
-                 error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0],IVdic[1.0]]
+    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02', 'JoohanBae', Row, Column,
+                 error_flag_list[0],
+                 error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
 
-    # df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv", mode='a',
-    #           header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\Result\\Test_Result.csv"),
-    #           index=False)
-
-    if not os.path.exists("Test_Result.csv"):
-        df.to_csv("Test_Result.csv", mode='w',index=False)
+    if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
+        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
     else:
-        df.to_csv("Test_Result.csv", mode='a',index=False,header=False)
-       
+        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
+
