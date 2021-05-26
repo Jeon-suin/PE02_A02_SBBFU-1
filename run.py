@@ -17,6 +17,7 @@ custom_a = str(input('figure를 저장하기를 원하십니까?(T/F) :'))
 start = time.time()
 
 for i in xml:
+    # fitting 실행
     process.fitting(i)
     filename = i.split('\\')[-1][:-4]
     print(filename + "이 완료되었습니다." + "(" + str(int(xml.index(i)) + 1) + "/" + str(len(xml)) + ")")
