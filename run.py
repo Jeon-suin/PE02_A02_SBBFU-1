@@ -7,10 +7,12 @@ from src import tocsv
 import glob
 import time
 import matplotlib.pyplot as plt
+import os
 
 xml=[]
 for filename in glob.glob('.\Data\P184640\**\*LMZ?.xml', recursive= True):
     xml.append(filename)
+
 
 custom_W = str(input('figure를 보시기를 원하십니까?(T/F) :'))
 custom_a = str(input('figure를 저장하기를 원하십니까?(T/F) :'))
@@ -25,19 +27,24 @@ for i in xml:
         print("모든 파일이 완료되었습니다 빠이루")
         break
 
+    if not os.path.exists('.\\res\\{}'.format(i.split('\\')[2])):
+        os.makedirs('.\\res\\{}'.format(i.split('\\')[2]))
+    if not os.path.exists('.\\res\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3])):
+        os.makedirs('.\\res\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3]))
+    if not os.path.exists('.\\res\\{}\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4])):
+        os.makedirs('.\\res\\{}\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4]))
 
-
-
-    # save figure 옵션
-    if custom_a == 'T':
-        if 'D07' in filename:
-            plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
-        elif 'D08' in filename:
-            plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
-        elif 'D23' in filename:
-            plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
-        else:
-            plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
+    plt.savefig('.\\res\\{}\\{}\\{}\\{}.png'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4],filename))
+    # # save figure 옵션
+    # if custom_a == 'T':
+    #     if 'D07' in filename:
+    #         plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
+    #     elif 'D08' in filename:
+    #         plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
+    #     elif 'D23' in filename:
+    #         plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
+    #     else:
+    #         plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
 
 
     # show figure 옵션
@@ -49,6 +56,6 @@ for i in xml:
 
 
     #csv 실행
-    process.csv_mod(i)
+    # process.csv_mod(i)
 
 print("실행 시간 :" + str(round(time.time()-start,1))+"초")
