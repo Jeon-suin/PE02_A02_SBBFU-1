@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 import numpy as np
+import warnings
+warnings.filterwarnings(action='ignore')
 
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)
