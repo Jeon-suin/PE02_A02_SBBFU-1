@@ -1,9 +1,9 @@
-from Source import process
-from Source import IVfitting
-from Source import Measured_Spectra
-from Source import Processed_spectra
-from Source import Ref_fitting
-from Source import tocsv
+from src import process
+from src import IVfitting
+from src import Measured_Spectra
+from src import Processed_spectra
+from src import Ref_fitting
+from src import tocsv
 import glob
 import time
 import matplotlib.pyplot as plt
