@@ -7,7 +7,8 @@ from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
 import os
-
+import warnings
+warnings.filterwarnings(action='ignore')
 
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)

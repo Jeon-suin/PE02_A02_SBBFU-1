@@ -4,7 +4,8 @@ import numpy as np
 from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
-
+import warnings
+warnings.filterwarnings(action='ignore')
 
 def IVfitting(filename):
 

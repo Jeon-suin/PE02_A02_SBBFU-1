@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
-
+import warnings
+warnings.filterwarnings(action='ignore')
 
 def Measured(filename):
 
