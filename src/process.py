@@ -43,6 +43,7 @@ def fitting(filename):
     y = np.abs(y)
 
     # 2번째 그래프
+    plt.rcParams['figure.figsize'] = [18, 15]  # JH, figsize solve
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
 
     plt.title("IV raw data & fitted data", fontsize=15)
