@@ -1,0 +1,9 @@
+BeautifulSoup
+matplotlib.pyplot
+numpy
+pandas
+parse
+Model
+exp
+statsmodels.api
+os

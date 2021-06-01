@@ -10,6 +10,7 @@ import os
 import warnings
 warnings.filterwarnings(action='ignore')
 
+
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)
     # r-squared
@@ -22,7 +23,7 @@ def poly(x, y, degree):
     return results
 
 
-def fitting(filename):
+def fitting(filename,custom_a,custom_w):
     fp = open(filename, "r")
 
     soup = BeautifulSoup(fp, "html.parser")
@@ -43,7 +44,6 @@ def fitting(filename):
     y = np.abs(y)
 
     # 2번째 그래프
-    plt.rcParams['figure.figsize'] = [18, 15]  # JH, figsize solve
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
 
     plt.title("IV raw data & fitted data", fontsize=15)
@@ -161,6 +161,26 @@ def fitting(filename):
     fig = plt.gcf()
     fig.set_size_inches((27, 15), forward=False)
 
+    # save figure 옵션
+
+    if custom_a == True:
+        if 'D07' in filename:
+            plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
+        elif 'D08' in filename:
+            plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
+        elif 'D23' in filename:
+            plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
+        else:
+            plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
+
+
+    # show figure 옵션
+
+    if custom_w == True:
+        fig.set_size_inches((27, 15), forward=False)
+        plt.show()
+    else:
+        plt.show(block=False)
 
 #######################################################################################################################
 #######################################################################################################################

@@ -48,6 +48,20 @@
  >Load the module that processes and fits raw data and the module that makes the data parsed from xml file into a csv file, respectively.
 
 ***
+<h2> Installation <h2>
+ 
+ 
+#####
+ >이제 여기다가 설명 쓸 차례
+***
+
+<h2> How to Run  <h2>
+ 
+ 
+#####
+ >런 파일 실행 방법 설명
+***
+
 
 
 <h2> Description of the module file feature <h2>
