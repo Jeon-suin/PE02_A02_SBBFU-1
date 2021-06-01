@@ -44,9 +44,11 @@ def fitting(filename,custom_a,custom_w):
     y = np.abs(y)
 
     # 2번째 그래프
+    plt.rcParams['figure.figsize'] = [18, 15]  # JH, figsize solve
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
 
-    plt.title("IV raw data & fitted data", fontsize=15)
+
+    plt.title("IV raw dat & fitted dat", fontsize=15)
     plt.xlabel("Voltage [V]")
     plt.ylabel("Current [A]")
 
@@ -151,7 +153,7 @@ def fitting(filename,custom_a,custom_w):
             plt.scatter(x, y, s=1, alpha=0.3, label=label[i] + 'V')
     plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0.05), ncol=3, loc='lower center')
 
-    plt.title("Transmission spectra except ref.data", fontsize=15)
+    plt.title("Transmission spectra except ref.dat", fontsize=15)
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 
@@ -162,30 +164,40 @@ def fitting(filename,custom_a,custom_w):
     fig.set_size_inches((27, 15), forward=False)
 
     # save figure 옵션
-
-    if custom_a == True:
-        if 'D07' in filename:
-            plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
-        elif 'D08' in filename:
-            plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
-        elif 'D23' in filename:
-            plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
-        else:
-            plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
-
+    # custom_ans = str(custom_a)
+    # if custom_ans == 'T':
+        # if 'D07' in filename:
+        #     if not os.path.exists('.\\res\\{}'.format(i.split('\\')[2])):
+        #         os.makedirs('.\\res\\{}'.format(i.split('\\')[2]))
+        #     plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
+        # elif 'D08' in filename:
+        #
+        #     plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
+        # elif 'D23' in filename:
+        #     plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
+        # else:
+        #     plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
+    custom_ans = str(custom_a)
+    if custom_ans == 'T':
+        if not os.path.exists('.\\res\\{}'.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\{}'.format(filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists('.\\res\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
+            os.makedirs('.\\res\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
+        plt.savefig('.\\res\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
 
     # show figure 옵션
-
-    if custom_w == True:
-        fig.set_size_inches((27, 15), forward=False)
+    custom_want = str(custom_w)
+    if custom_want == 'T':
+        # fig.set_size_inches((27, 15), forward=False)
         plt.show()
-    else:
-        plt.show(block=False)
+    
 
 #######################################################################################################################
 #######################################################################################################################
 
-def csv_mod(filename):
+def csv_mod(filename,custom_csv):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -258,9 +270,10 @@ def csv_mod(filename):
     df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02', 'JoohanBae', Row, Column,
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
-
-    if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
-        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
-    else:
-        df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
+    if custom_csv == 'T':
+        if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
+            os.makedirs('.\\res\\csv\\')
+            df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
+        else:
+            df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
 

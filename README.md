@@ -52,14 +52,15 @@
  
  
 #####
- >이제 여기다가 설명 쓸 차례
+ >터미널에 들어가서 pip install -r requirements.txt를 적어라 
+> ex 사진 하나
 ***
 
 <h2> How to Run  <h2>
  
  
 #####
- >런 파일 실행 방법 설명
+ >run.py에 있는 피팅에다가 show firugre save figure 변수 입력 후 csv 변수 입려후 실행
 ***
 
 
