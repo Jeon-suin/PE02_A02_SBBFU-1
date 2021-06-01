@@ -52,15 +52,19 @@
  
  
 #####
- >터미널에 들어가서 pip install -r requirements.txt를 적어라 
-> ex 사진 하나
+ > Entered the Terminal, write down 'pip install -r requirements.txt' and download it.
+> 
+![image](https://user-images.githubusercontent.com/84078034/120275853-e41b5900-c2ec-11eb-9281-e89b1122e3d9.png)
 ***
 
 <h2> How to Run  <h2>
  
  
 #####
- >run.py에 있는 피팅에다가 show firugre save figure 변수 입력 후 csv 변수 입려후 실행
+ > Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
+ Save csv files with True or False input.
+> 
+![image](https://user-images.githubusercontent.com/84078034/120276717-0661a680-c2ee-11eb-9846-16d84bf5ac45.png)
 ***
 
 

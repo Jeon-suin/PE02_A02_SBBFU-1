@@ -164,19 +164,6 @@ def fitting(filename,custom_a,custom_w):
     fig.set_size_inches((27, 15), forward=False)
 
     # save figure 옵션
-    # custom_ans = str(custom_a)
-    # if custom_ans == 'T':
-        # if 'D07' in filename:
-        #     if not os.path.exists('.\\res\\{}'.format(i.split('\\')[2])):
-        #         os.makedirs('.\\res\\{}'.format(i.split('\\')[2]))
-        #     plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
-        # elif 'D08' in filename:
-        #
-        #     plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
-        # elif 'D23' in filename:
-        #     plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
-        # else:
-        #     plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
     custom_ans = str(custom_a)
     if custom_ans == 'T':
         if not os.path.exists('.\\res\\{}'.format(filename.split('\\')[2])):
@@ -196,6 +183,7 @@ def fitting(filename,custom_a,custom_w):
 
 #######################################################################################################################
 #######################################################################################################################
+
 
 def csv_mod(filename,custom_csv):
     fp = open(filename, "r")
