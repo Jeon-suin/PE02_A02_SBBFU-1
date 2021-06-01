@@ -16,7 +16,7 @@ def Measured(filename):
     for i in range(0, 7):
         label.append(wavelengthsweep[i]['dcbias'])  # append가 list에 뭔가를 추가
 
-    # Measured raw data
+    # Measured raw dat
 
     for i in range(0, 7):
         wavelength = soup.findAll('wavelengthsweep')[i]('l')[0].string

@@ -8,8 +8,9 @@ for filename in glob.glob('.\dat\P184640\**\*LMZ?.xml', recursive= True):
 start = time.time()
 
 for i in xml:
+
     # fitting 실행
-    process.fitting(i,True,True) #빈칸에 save figure 및 show figure를 True or False 로 입력하세요.
+    process.fitting(i,'T','F') #빈칸에 save figure 및 show figure를 True or False 로 입력하세요.
     filename = i.split('\\')[-1][:-4]
     print(filename + "이 완료되었습니다." + "(" + str(int(xml.index(i)) + 1) + "/" + str(len(xml)) + ")")
     if int(xml.index(i)) + 1 == len(xml):
@@ -17,6 +18,6 @@ for i in xml:
         break
 
     #csv 실행
-    process.csv_mod(i)
+    process.csv_mod(i,'T') # 빈칸에 csv 파일로 저장하고 싶으면 True or False를 입력하세요.
 
 print("실행 시간 :" + str(round(time.time()-start,1))+"초")

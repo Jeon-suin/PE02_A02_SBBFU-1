@@ -41,7 +41,7 @@ def Pro_spe(filename):
             plt.scatter(x, y, s=1 , alpha=0.3, label=label[i] + 'V')
     plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0.05), ncol=3, loc='lower center')
 
-    plt.title("Transmission spectra except ref.data", fontsize=15)
+    plt.title("Transmission spectra except ref.dat", fontsize=15)
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 

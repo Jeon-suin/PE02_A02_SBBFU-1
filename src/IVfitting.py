@@ -22,7 +22,7 @@ def IVfitting(filename):
 
     # 2번째 그래프
 
-    plt.title("IV raw data & fitted data", fontsize=15)
+    plt.title("IV raw dat & fitted dat", fontsize=15)
     plt.xlabel("Voltage [V]")
     plt.ylabel("Current [A]")
 
