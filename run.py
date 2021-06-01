@@ -1,61 +1,22 @@
-from src import process
-from src import IVfitting
-from src import Measured_Spectra
-from src import Processed_spectra
-from src import Ref_fitting
-from src import tocsv
-import glob
-import time
-import matplotlib.pyplot as plt
-import os
+from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
+import glob , time
 
 xml=[]
-for filename in glob.glob('.\Data\P184640\**\*LMZ?.xml', recursive= True):
+for filename in glob.glob('.\dat\P184640\**\*LMZ?.xml', recursive= True):
     xml.append(filename)
 
-
-custom_W = str(input('figure를 보시기를 원하십니까?(T/F) :'))
-custom_a = str(input('figure를 저장하기를 원하십니까?(T/F) :'))
 start = time.time()
 
 for i in xml:
     # fitting 실행
-    process.fitting(i)
+    process.fitting(i,True,True) #빈칸에 save figure 및 show figure를 True or False 로 입력하세요.
     filename = i.split('\\')[-1][:-4]
     print(filename + "이 완료되었습니다." + "(" + str(int(xml.index(i)) + 1) + "/" + str(len(xml)) + ")")
     if int(xml.index(i)) + 1 == len(xml):
         print("모든 파일이 완료되었습니다 빠이루")
         break
 
-    if not os.path.exists('.\\res\\{}'.format(i.split('\\')[2])):
-        os.makedirs('.\\res\\{}'.format(i.split('\\')[2]))
-    if not os.path.exists('.\\res\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3])):
-        os.makedirs('.\\res\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3]))
-    if not os.path.exists('.\\res\\{}\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4])):
-        os.makedirs('.\\res\\{}\\{}\\{}'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4]))
-
-    plt.savefig('.\\res\\{}\\{}\\{}\\{}.png'.format(i.split('\\')[2],i.split('\\')[3],i.split('\\')[4],filename))
-    # # save figure 옵션
-    # if custom_a == 'T':
-    #     if 'D07' in filename:
-    #         plt.savefig('.\\res\\D07\\' + filename + '.png', bbox_inches='tight')
-    #     elif 'D08' in filename:
-    #         plt.savefig('.\\res\\D08\\' + filename + '.png', bbox_inches='tight')
-    #     elif 'D23' in filename:
-    #         plt.savefig('.\\res\\D23\\' + filename + '.png', bbox_inches='tight')
-    #     else:
-    #         plt.savefig('.\\res\\D24\\' + filename + '.png', bbox_inches='tight')
-
-
-    # show figure 옵션
-    if custom_W == 'T':
-        plt.show()
-    else:
-        plt.show(block=False)
-
-
-
     #csv 실행
-    # process.csv_mod(i)
+    process.csv_mod(i)
 
 print("실행 시간 :" + str(round(time.time()-start,1))+"초")
