@@ -29,9 +29,6 @@
 >
 >
 >* How to Run
->   + Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure. \
->Save csv files with True or False input.
->
 >   + Please enter the file_location and parameter of save_figure, show_figure, save_csv. \
 ``file_path = '.\dat\P184640\**\*LMZ?.xml'``\
 ``save_figure = 'T' or 'F' `` \
