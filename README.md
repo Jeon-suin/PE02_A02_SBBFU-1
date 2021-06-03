@@ -1,16 +1,22 @@
 <h6>PE02_A02<h6>
 <h1> SBBFU Project <h1>
  
-***
-  
+ 
+<h2> Description <h2>
 
+#####
+>간단한 설명 블라블라
+>
+>
 <h2> Installation <h2>
  
  
 #####
- > Entered the Terminal, write down 'pip install -r requirements.txt' and download it.
-> 
-![image](https://user-images.githubusercontent.com/84078034/120275853-e41b5900-c2ec-11eb-9281-e89b1122e3d9.png)
+ > Entered the Terminal, write down 'pip install -r requirements.txt' and download it. \
+\
+>``(base) C:\Download\PE02_A02_SBBFU-1>pip install -r requirements.txt``
+
+
 ***
 
 <h2> How to Run  <h2>
@@ -19,8 +25,12 @@
 #####
  > Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
  Save csv files with True or False input.
-> 
-![image](https://user-images.githubusercontent.com/84078034/120276717-0661a680-c2ee-11eb-9846-16d84bf5ac45.png)
+
+>\
+``file_path = '.\dat\P184640\**\*LMZ?.xml'``\
+``save_figure = 'T' `` \
+``show_figure = 'T' `` \
+``save_csv = 'T'``
 ***
 
 

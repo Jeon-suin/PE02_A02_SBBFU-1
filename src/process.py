@@ -10,7 +10,6 @@ import os
 import warnings
 warnings.filterwarnings(action='ignore')
 
-
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)
     # r-squared
@@ -108,7 +107,7 @@ def fitting(filename,custom_a,custom_w):
     # 3번째 그래프
     plt.subplot2grid(grid, (0, 7), rowspan=5, colspan=5)
     squared = []
-    for i in range(1, 8):
+    for i in range(1, 7):
         z = np.polyfit(refx, refy, i)
         f = np.poly1d(z)
         x_new = np.linspace(refx[0], refx[-1], 50)
@@ -120,7 +119,7 @@ def fitting(filename,custom_a,custom_w):
     # R-squared
     squ = 0.95
     a = 0
-    for i in range(4, 7):
+    for i in range(4, 6):
         if squared[i] > squ:
             squ = squared[i]
             a = i
@@ -166,13 +165,15 @@ def fitting(filename,custom_a,custom_w):
     # save figure 옵션
     custom_ans = str(custom_a)
     if custom_ans == 'T':
-        if not os.path.exists('.\\res\\{}'.format(filename.split('\\')[2])):
-            os.makedirs('.\\res\\{}'.format(filename.split('\\')[2]))
-        if not os.path.exists('.\\res\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
-            os.makedirs('.\\res\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\res\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
-            os.makedirs('.\\res\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
-        plt.savefig('.\\res\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
+        if not os.path.exists('.\\res\\figure'):
+            os.makedirs('.\\res\\figure')
+        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
 
     # show figure 옵션
     custom_want = str(custom_w)
@@ -255,7 +256,7 @@ def csv_mod(filename,custom_csv):
                                'ErrorFlag', 'Error description', 'Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
                                'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
 
-    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02', 'JoohanBae', Row, Column,
+    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02', 'JoohanBae,Parkseoungmin,Jeonsuin', Row, Column,
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
     if custom_csv == 'T':
