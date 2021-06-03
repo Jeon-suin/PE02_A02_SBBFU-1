@@ -1,36 +1,42 @@
 <h6>PE02_A02<h6>
 <h1> SBBFU Project <h1>
  
- 
-<h2> Description <h2>
-
 #####
->간단한 설명 블라블라
+> We aim to develop Python-based data analysis software \
+> The goal is to develop software that can analyze wafer scale data in detail.
 >
+> Main request 
+> + Lot
+> + Wafer
+> + Die row & colum
+> 
+> We can analyze the selected data by specifying specific elements
 >
-<h2> Installation <h2>
- 
- 
-#####
- > Entered the Terminal, write down 'pip install -r requirements.txt' and download it. \
-\
->``(base) C:\Download\PE02_A02_SBBFU-1>pip install -r requirements.txt``
+> Finally, the final report The final goal is to make documentation about the tasks 
+> we did using a jupyter notebook and report it to the customer.
+>
+> Please put the data in the 'Data' folder specify the file path Run the Run.py 
 
-
+ 
 ***
 
-<h2> How to Run  <h2>
- 
- 
+<h2> Project information <h2>
+
 #####
- > Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
+>* Getting Stared
+>  + Entered the Terminal, write down 'pip install -r requirements.txt' and download it. \
+>``(base) C:\Download\PE02_A02_SBBFU-1>pip install -r requirements.txt``
+>
+>
+>* How to Run
+>  + Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
  Save csv files with True or False input.
 
->\
+>   + Please enter the file_location and parameter of save_figure, show_figure, save_csv. \
 ``file_path = '.\dat\P184640\**\*LMZ?.xml'``\
-``save_figure = 'T' `` \
-``show_figure = 'T' `` \
-``save_csv = 'T'``
+``save_figure = 'T' or 'F' `` \
+``show_figure = 'T' or 'F' `` \
+``save_csv = 'T' or 'F'``
 ***
 
 
