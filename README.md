@@ -24,12 +24,12 @@
 
 #####
 >* Getting Stared
->  + Entered the Terminal, write down 'pip install -r requirements.txt' and download it. \
+>   + Entered the Terminal, write down 'pip install -r requirements.txt' and download it. \
 >``(base) C:\Download\PE02_A02_SBBFU-1>pip install -r requirements.txt``
 >
 >
 >* How to Run
->  + Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
+>   + Enter True or False in the fitting in the run.py file to determine whether to show figure or save figure.
  Save csv files with True or False input.
 
 >   + Please enter the file_location and parameter of save_figure, show_figure, save_csv. \
