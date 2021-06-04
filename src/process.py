@@ -36,14 +36,14 @@ def fitting(filename,custom_a,custom_w):
     voltage = soup.findAll('voltage')[0].string.split(',')
     current = soup.findAll('current')[0].string.split(',')
 
-    grid = (12, 19)
+    grid = (12, 12)
 
     x = list(map(float, voltage))
     y = list(map(float, current))
     y = np.abs(y)
 
     # 2번째 그래프
-    plt.rcParams['figure.figsize'] = [18, 15]  # JH, figsize solve
+    plt.rcParams['figure.figsize'] = [18, 15]
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
 
 
@@ -135,7 +135,7 @@ def fitting(filename,custom_a,custom_w):
     plt.ylabel('Measured transmission [dB]')
 
     # 4번째 그래프
-    plt.subplot2grid(grid, (0, 14), rowspan=5, colspan=5)
+    plt.subplot2grid(grid, (7, 7), rowspan=5, colspan=5)
     for i in range(0, 6):
         wavelength = soup.findAll('wavelengthsweep')[i]('l')[0].string
         WL = wavelength.split(',')
@@ -171,14 +171,20 @@ def fitting(filename,custom_a,custom_w):
             os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
         if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
             os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
-            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
-        plt.savefig('.\\res\\figure\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
+        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
+
+    # 저장안하고 Show만 했을경우 파일 없다고 에러나서 씀
+    try:
+        if result1.rsquared < 0.95: #없애버림 ㅋㅅㅋ
+            os.remove('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
+    except:FileNotFoundError
+
 
     # show figure 옵션
     custom_want = str(custom_w)
     if custom_want == 'T':
-        # fig.set_size_inches((27, 15), forward=False)
         plt.show()
     
 

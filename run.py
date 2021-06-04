@@ -2,10 +2,10 @@ from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_
 import glob, time
 from tqdm import tqdm
 
-file_path = '.\dat\P184640\**\*LMZ?.xml'
-save_figure = 'T'
+file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+save_figure = 'F'
 show_figure = 'T'
-save_csv = 'T'
+save_csv = 'F'
 
 xml=[]
 for filename in glob.glob(file_path, recursive= True):
@@ -21,7 +21,7 @@ for i in xml_tqdm:
     # fitting 실행
     process.fitting(i,save_figure,show_figure)
     if int(xml.index(i)) + 1 == len(xml):
-        print("모든 파일이 완료되었습니다 수고하셨습니다.")
+        print("모든 파일이 완료되었습니다. 수고하셨습니다.")
 
     #csv 실행
     process.csv_mod(i,save_csv)
