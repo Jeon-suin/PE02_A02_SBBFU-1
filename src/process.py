@@ -8,7 +8,9 @@ from numpy import exp
 import statsmodels.api as sm
 import os
 import warnings
+
 warnings.filterwarnings(action='ignore')
+
 
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)
@@ -22,7 +24,7 @@ def poly(x, y, degree):
     return results
 
 
-def fitting(filename,custom_a,custom_w):
+def fitting(filename, custom_a, custom_w):
     fp = open(filename, "r")
 
     soup = BeautifulSoup(fp, "html.parser")
@@ -45,7 +47,6 @@ def fitting(filename,custom_a,custom_w):
     # 2번째 그래프
     plt.rcParams['figure.figsize'] = [18, 15]
     plt.subplot2grid(grid, (7, 0), rowspan=5, colspan=5)
-
 
     plt.title("IV raw dat & fitted dat", fontsize=15)
     plt.xlabel("Voltage [V]")
@@ -156,43 +157,39 @@ def fitting(filename,custom_a,custom_w):
     plt.xlabel("Wavelength [nm]")
     plt.ylabel("Measured transmission [dB]")
 
-    #filename 수정_수업시간
+    # filename 수정_수업시간
     fname = filename.split('\\')[-1][:-4]
     plt.suptitle(fname)
     fig = plt.gcf()
     fig.set_size_inches((27, 15), forward=False)
 
     # save figure 옵션
-    custom_ans = str(custom_a)
-    if custom_ans == 'T':
+
+    if custom_a == 1:
         if not os.path.exists('.\\res\\figure'):
             os.makedirs('.\\res\\figure')
         if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
             os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
         if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
             os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4])):
-            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
-        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
-
-    # 저장안하고 Show만 했을경우 파일 없다고 에러나서 씀
-    try:
-        if result1.rsquared < 0.95: #없애버림 ㅋㅅㅋ
-            os.remove('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
-    except:FileNotFoundError
-
+        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                  filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                            filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                filename.split('\\')[4], fname))
 
     # show figure 옵션
-    custom_want = str(custom_w)
-    if custom_want == 'T':
+
+    if custom_w == 1:
         plt.show()
-    
+
 
 #######################################################################################################################
 #######################################################################################################################
 
 
-def csv_mod(filename,custom_csv):
+def csv_mod(filename, custom_csv):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -262,13 +259,13 @@ def csv_mod(filename,custom_csv):
                                'ErrorFlag', 'Error description', 'Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
                                'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
 
-    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02', 'JoohanBae,Parkseoungmin,Jeonsuin', Row, Column,
+    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02',
+                 'JoohanBae,Parkseoungmin,Jeonsuin', Row, Column,
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
-    if custom_csv == 'T':
+    if custom_csv == 1:
         if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
             os.makedirs('.\\res\\csv\\')
             df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
         else:
             df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
-
