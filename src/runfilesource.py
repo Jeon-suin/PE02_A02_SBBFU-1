@@ -1,8 +1,6 @@
 from tkinter import *
-import tkinter as tk
 import tkinter.ttk
 import tkinter.font
-import os
 import time
 import glob
 from tqdm import tqdm
@@ -20,9 +18,6 @@ def checkbox(file_path):
 
     def status3_print():
         return (CheckVar3.get())
-
-    def close_window():
-        window.destroy()
 
     def save_status(event):
         a = status1_print()
@@ -55,7 +50,7 @@ def checkbox(file_path):
 
     c1=Checkbutton(window,text="save figure",variable=CheckVar1, command=status1_print)
     c2=Checkbutton(window,text="show figure",variable=CheckVar2, command=status2_print)
-    c3=Checkbutton(window,text="save csv",variable=CheckVar3, command=status3_print)
+    c3=Checkbutton(window,text="save   csv ",variable=CheckVar3, command=status3_print)
 
     c1.pack()
     c2.pack()
