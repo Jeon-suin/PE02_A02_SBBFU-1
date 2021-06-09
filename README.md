@@ -62,7 +62,7 @@ The customer can choose the option (save figure, show figure, save csv).
   
 
   #####
- 
+ Conclusion
    >- After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
    >- Save this fitting figure in the ‘result’ folder.
    >- Save the csv file to the 'result' folder based on the data provided by the customer.
