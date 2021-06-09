@@ -7,3 +7,5 @@ lmfit
 sticks
 statsmodels
 jupyter
+tqdm
+python-dateutil
