@@ -175,13 +175,6 @@ def fitting(filename,custom_a,custom_w):
             os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4]))
         plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
 
-    # 저장안하고 Show만 했을경우 파일 없다고 에러나서 씀
-    try:
-        if result1.rsquared < 0.95: #없애버림 ㅋㅅㅋ
-            os.remove('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3], filename.split('\\')[4], fname))
-    except:FileNotFoundError
-
-
     # show figure 옵션
     custom_want = str(custom_w)
     if custom_want == 'T':

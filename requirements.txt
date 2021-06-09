@@ -6,3 +6,4 @@ pycparser
 lmfit
 sticks
 statsmodels
+jupyter

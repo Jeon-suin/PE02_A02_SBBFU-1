@@ -2,10 +2,10 @@ from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_
 import glob, time
 from tqdm import tqdm
 
-file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+file_path = '.\dat\P184640\**\*LMZ?.xml'
 save_figure = 'F'
 show_figure = 'T'
-save_csv = 'F'
+save_csv = 'T'
 
 xml=[]
 for filename in glob.glob(file_path, recursive= True):
