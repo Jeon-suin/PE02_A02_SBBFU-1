@@ -56,7 +56,7 @@ def checkbox(file_path):
     c2.pack()
     c3.pack()
 
-    save_btn = tkinter.Label(window, text="save",bg='grey19', fg = 'snow')
+    save_btn = tkinter.Label(window, text="run",bg='grey19', fg = 'snow')
     save_btn.bind('<Button-1>', save_status)
     save_btn.place(x=110,y=100)
     window.geometry('250x250+220+200')

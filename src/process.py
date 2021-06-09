@@ -159,7 +159,7 @@ def fitting(filename, custom_a, custom_w):
 
     # filename 수정_수업시간
     fname = filename.split('\\')[-1][:-4]
-    plt.suptitle(fname)
+    plt.suptitle(fname, fontsize = 27)
     fig = plt.gcf()
     fig.set_size_inches((27, 15), forward=False)
 
@@ -264,8 +264,8 @@ def csv_mod(filename, custom_csv):
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
     if custom_csv == 1:
-        if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
+        if not os.path.exists('.\\res\\csv\\process_Result.csv'):
             os.makedirs('.\\res\\csv\\')
-            df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
+            df.to_csv(".\\res\\csv\\process_Result.csv", mode='w', index=False)
         else:
-            df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
+            df.to_csv(".\\res\\csv\\process_Result.csv", mode='a', index=False, header=False)
