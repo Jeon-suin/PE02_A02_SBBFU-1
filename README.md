@@ -61,6 +61,7 @@ The customer can choose the option (save figure, show figure, save csv).
  ![캡처](https://user-images.githubusercontent.com/80964488/117802539-903ec680-b290-11eb-969f-6fd459a8d594.PNG)
   
 
+***
   #####
  
    >- After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
