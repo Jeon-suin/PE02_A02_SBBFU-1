@@ -2,8 +2,8 @@ from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings(action='ignore')
-
-def Measured(filename):
+import os
+def Measured(filename,custom_a,custom_w):
 
     fp = open(filename, "r")
 
@@ -36,9 +36,26 @@ def Measured(filename):
     plt.ylabel("Measured transmission [dB]")
     plt.legend(loc='lower center', ncol=3)
 
+    fname = filename.split('\\')[-1][:-4]
     plt.suptitle(filename)
     fig = plt.gcf()
     fig.set_size_inches((27, 15), forward=False)
 
-    # plt.savefig(filename + '.png', bbox_inches='tight')
+    if custom_a == 1:
+        if not os.path.exists('.\\PE02_A02_SBBFU\\res\\figure'):
+            os.makedirs('.\\PE02_A02_SBBFU\\res\\figure')
+        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                  filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                            filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                filename.split('\\')[4], fname))
 
+    # show figure 옵션
+
+    if custom_w == 1:
+        plt.show()
