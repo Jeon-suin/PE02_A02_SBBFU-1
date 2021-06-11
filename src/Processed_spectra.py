@@ -10,7 +10,6 @@ def Pro_spe(filename,custom_a,custom_w):
 
     soup = BeautifulSoup(fp,"html.parser")
 
-
     # 4번째 그래프
 
     # label
