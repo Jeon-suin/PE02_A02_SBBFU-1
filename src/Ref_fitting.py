@@ -57,7 +57,7 @@ def Ref_fitting(filename,custom_a,custom_w):
     plt.ylabel('Measured transmission [dB]')
 
     fname = filename.split('\\')[-1][:-4]
-    plt.suptitle(filename)
+    plt.suptitle(fname)
     fig = plt.gcf()
     fig.set_size_inches((27,15), forward=False)
 
