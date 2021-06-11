@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import warnings
 warnings.filterwarnings(action='ignore')
+import os
 
 def poly(x, y, degree):
     coeffs = np.polyfit(x, y, degree)
@@ -15,7 +16,7 @@ def poly(x, y, degree):
     results = ssreg / sstot
     return results
 
-def Ref_fitting(filename):
+def Ref_fitting(filename,custom_a,custom_w):
 
     fp = open(filename, "r")
 
@@ -55,9 +56,26 @@ def Ref_fitting(filename):
     plt.xlabel('Wavelength [nm]')
     plt.ylabel('Measured transmission [dB]')
 
+    fname = filename.split('\\')[-1][:-4]
     plt.suptitle(filename)
     fig = plt.gcf()
     fig.set_size_inches((27,15), forward=False)
 
+    if custom_a == 1:
+        if not os.path.exists('.\\res\\figure'):
+            os.makedirs('.\\res\\figure')
+        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                  filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                            filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                filename.split('\\')[4], fname))
 
-    # plt.savefig(filename + '.png', bbox_inches = 'tight')
+    # show figure 옵션
+
+    if custom_w == 1:
+        plt.show()
