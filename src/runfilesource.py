@@ -3,14 +3,15 @@ import tkinter.ttk as ttk
 import tkinter.font
 import time
 import glob
-
+import os
+import webbrowser
 
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
 
 def checkbox(file_path):
     window = Tk()
-    window.title("check box test")
+    window.title("Run to data")
 
     def status1_print():
         return (CheckVar1.get())
@@ -36,6 +37,7 @@ def checkbox(file_path):
     def getcombo2():
         return combo1.get()
 
+
     def save_status(file_path = file_path):
         a = status1_print()
         b = status2_print()
@@ -45,7 +47,7 @@ def checkbox(file_path):
         f = status6_print()
         g = status7_print()
 
-        if a + b + c == 0:
+        if a + b + c == 0 or d + e + f + g == 0:
             print('옵션을 다시 선택하여 주세요. 프로그램을 종료합니다.')
         else:
             start = time.time()
@@ -207,9 +209,17 @@ def checkbox(file_path):
     label = tkinter.Label(frame, text="Wafer", width=4, height=3, fg="black", )
     label.pack()
 
+    label2 = tkinter.Label(window, text="made by A02", fg="black", )
+    label2.pack()
+    label2.place(x=420,y=380)
+
     list1 = ['Transmission spectra','IV raw dat','Processed and fitting','Spectra except ref','All figure']
     combo1 = ttk.Combobox(frame, values=list1)
     combo1.set("Pick figure dat")
+
+    list2 = ['Transmission spectra', 'IV raw dat', 'Processed and fitting', 'Spectra except ref', 'All figure']
+    combo2 = ttk.Combobox(frame, values=list1)
+    combo2.set("row and column")
 
     c4.pack()
     c5.pack()
@@ -217,9 +227,40 @@ def checkbox(file_path):
     c7.pack()
 
     combo1.pack(pady=10)
+    def btn():
+        os.startfile('.res')
+    def btn2():
+        code = "jupyter notebook"
+        os.system(code)
+    def btn3():
+        os.startfile('dat')
+
+    def callback(url):
+        webbrowser.open_new(url)
+
+    link1 = Label(window, text="Github", fg="blue", cursor="hand2")
+    link1.pack()
+    link1.bind("<Button-1>", lambda e: callback("https://github.com/SBBFU/PE02_A02_SBBFU"))
+    link1.place(x=10,y=10)
+    # link2 = Label(frame, text="Ecosia Hyperlink", fg="blue", cursor="hand2")
+    # link2.pack()
+    # link2.bind("<Button-1>", lambda e: callback("http://www.ecosia.org"))
+
+    doc_btn = Button(window,width=15 ,text="Final Report", command=btn2)
+    doc_btn.pack()
+    doc_btn.place(x=10, y= 290)
+
+    res_btn = Button(window, width=15,text="res folder", command=btn)
+    res_btn.pack()
+    res_btn.place(x=10,y=260)
+
+    dat_btn = Button(window, width=15, text="dat folder", command=btn3)
+    dat_btn.pack()
+    dat_btn.place(x=10, y=230)
 
     save_btn = Button(frame, text="run",command =lambda :[getcombo2(),save_status()])
     save_btn.pack(side="bottom",fill="both")
+
 
     CheckVar1 = IntVar()
     CheckVar2 = IntVar()
