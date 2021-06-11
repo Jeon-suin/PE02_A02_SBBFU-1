@@ -5,9 +5,16 @@ import time
 import glob
 import os
 import webbrowser
+import shutil
 
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
+
+try:
+    shutil.rmtree('.\\res\\csv')
+except:
+    FileNotFoundError
+    pass
 
 def checkbox(file_path):
     window = Tk()
@@ -228,7 +235,7 @@ def checkbox(file_path):
 
     combo1.pack(pady=10)
     def btn():
-        os.startfile('.res')
+        os.startfile('res')
     def btn2():
         code = "jupyter notebook"
         os.system(code)

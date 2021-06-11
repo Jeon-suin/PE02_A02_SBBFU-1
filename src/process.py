@@ -166,17 +166,17 @@ def fitting(filename, custom_a, custom_w):
     # save figure 옵션
 
     if custom_a == 1:
-        if not os.path.exists('.\\.res\\figure'):
-            os.makedirs('.\\.res\\figure')
-        if not os.path.exists('.\\.res\\figure\\{}'.format(filename.split('\\')[2])):
-            os.makedirs('.\\.res\\figure\\{}'.format(filename.split('\\')[2]))
-        if not os.path.exists('.\\.res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
-            os.makedirs('.\\.res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\.res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+        if not os.path.exists('.\\res\\figure'):
+            os.makedirs('.\\res\\figure')
+        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
                                                                   filename.split('\\')[4])):
-            os.makedirs('.\\.res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
+            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
                                                             filename.split('\\')[4]))
-        plt.savefig('.\\.res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
+        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
                                                                 filename.split('\\')[4], fname))
 
     # show figure 옵션
