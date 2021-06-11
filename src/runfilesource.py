@@ -3,15 +3,10 @@ import tkinter.ttk as ttk
 import tkinter.font
 import time
 import glob
-import shutil
+
 
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
-
-try:
-    shutil.rmtree('.\\res\\csv')
-except FileNotFoundError:
-    pass
 
 def checkbox(file_path):
     window = Tk()
