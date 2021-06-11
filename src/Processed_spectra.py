@@ -39,7 +39,8 @@ def Pro_spe(filename,custom_a,custom_w):
 
         if i < 6:
             plt.scatter(x, y, s=1 , alpha=0.3, label=label[i] + 'V')
-    plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0.05), ncol=3, loc='lower center')
+    # plt.legend(bbox_to_anchor=(0.25, 1.08, 0.5, 0), ncol=3, loc='upper center')
+    plt.legend(loc = 'lower center', ncol = 3)
 
     plt.title("Transmission spectra except ref.dat", fontsize=15)
     plt.xlabel("Wavelength [nm]")

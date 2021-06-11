@@ -1,4 +1,5 @@
-/dat/
-/res/
+*.xml
+*.png
+*.csv
 /.idea/
 /.ipynb_checkpoints/
