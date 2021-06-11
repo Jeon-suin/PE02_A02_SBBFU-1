@@ -93,13 +93,3 @@ def csv_mod(filename):
 
     df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date,'process LMZ', '0.1', 'A02' ,'JoohanBae',Row, Column, error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0],IVdic[1.0]]
-
-
-    # df.to_csv("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\res\\Test_Result.csv", mode='a',
-    #           header = not os.path.exists("C:\\ㅎMAIN FOLDER\\Pycharmproject\\pythonProject\\res\\Test_Result.csv"),
-    #           index=False)
-    #
-    # if not os.path.exists('.\\res\\csv\\Test_Result.csv'):
-    #     df.to_csv(".\\res\\csv\\Test_Result.csv", mode='w', index=False)
-    # else:
-    #     df.to_csv(".\\res\\csv\\Test_Result.csv", mode='a', index=False, header=False)
