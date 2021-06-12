@@ -6,7 +6,6 @@ import glob
 import os
 import webbrowser
 import shutil
-
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
 
@@ -41,9 +40,14 @@ def checkbox(file_path):
     def status7_print():
         return (CheckVar7.get())
 
+    def status8_print():
+        return (CheckVar8.get())
+
     def getcombo2():
         return combo1.get()
 
+    def getcombo3():
+        return combo2.get()
 
     def save_status(file_path = file_path):
         a = status1_print()
@@ -53,32 +57,33 @@ def checkbox(file_path):
         e = status5_print()
         f = status6_print()
         g = status7_print()
+        h = status8_print()
 
-        if a + b + c == 0 or d + e + f + g == 0:
+        if a + b + c == 0 or d + e + f + g + h == 0:
             print('옵션을 다시 선택하여 주세요. 프로그램을 종료합니다.')
         else:
             start = time.time()
-            if d == 1 and e == 0 and f == 0 and g == 0:
+            if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-            elif e == 1 and d == 0 and f == 0 and g == 0:
+            elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-            elif f == 1 and d == 0 and e == 0 and g == 0:
+            elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D23\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-            elif g == 1 and f == 0 and d == 0 and e == 0:
+            elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
                 file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-            elif d == 1 and e == 1 and f == 0 and g == 0:
+            elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -86,7 +91,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif f == 1 and d == 1 and e == 0 and g == 0:
+            elif f == 1 and d == 1 and e == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -94,7 +99,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif g == 1 and d == 1 and e == 0 and f == 0:
+            elif g == 1 and d == 1 and e == 0 and f == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -102,7 +107,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D024\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and f == 1 and d == 0 and g == 0:
+            elif e == 1 and f == 1 and d == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -110,7 +115,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and g == 1 and d == 0 and f == 0:
+            elif e == 1 and g == 1 and d == 0 and f == 0 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -118,7 +123,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif f == 1 and g == 1 and d == 0 and g == 0:
+            elif f == 1 and g == 1 and d == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -126,7 +131,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif d == 1 and e == 1 and f == 1 and g == 0:
+            elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -137,7 +142,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and d == 1 and g == 1 and f == 0:
+            elif e == 1 and d == 1 and g == 1 and f == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -148,7 +153,7 @@ def checkbox(file_path):
                 file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
-            elif d == 1 and g == 1 and f == 1 and e == 0:
+            elif d == 1 and g == 1 and f == 1 and e == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -159,7 +164,7 @@ def checkbox(file_path):
                 file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
-            elif e == 1 and g == 1 and f == 1 and d == 0:
+            elif e == 1 and g == 1 and f == 1 and d == 0 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -174,11 +179,18 @@ def checkbox(file_path):
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
+            xml1=[]
+            for i in xml:
+                if combo2.get() in i:
+                  xml1.append(i)
+                else:
+                    xml1 = xml
 
-            xml_tqdm = tqdm(xml)
+            xml_tqdm = tqdm(xml1)
             for i in xml_tqdm:
                 filename = i.split('\\')[-1][:-4]
                 xml_tqdm.set_description(f'Processing {filename}')
+
 
                 # fitting 실행
                 if combo1.get() == 'All figure':
@@ -207,11 +219,13 @@ def checkbox(file_path):
     CheckVar5 = IntVar()
     CheckVar6 = IntVar()
     CheckVar7 = IntVar()
+    CheckVar8 = IntVar()
 
     c4 = Checkbutton(frame, text="D07", variable=CheckVar4, command=status4_print)
     c5 = Checkbutton(frame, text="D08", variable=CheckVar5, command=status5_print)
     c6 = Checkbutton(frame, text="D23", variable=CheckVar6, command=status6_print)
     c7 = Checkbutton(frame, text="D24", variable=CheckVar7, command=status7_print)
+    c8 = Checkbutton(frame, text="ALL", variable=CheckVar8, command=status8_print)
 
     label = tkinter.Label(frame, text="Wafer", width=4, height=3, fg="black", )
     label.pack()
@@ -224,16 +238,21 @@ def checkbox(file_path):
     combo1 = ttk.Combobox(frame, values=list1)
     combo1.set("Pick figure dat")
 
-    list2 = ['Transmission spectra', 'IV raw dat', 'Processed and fitting', 'Spectra except ref', 'All figure']
-    combo2 = ttk.Combobox(frame, values=list1)
+    list2 = ['ALL','(-1,-1)','(-1,-3)','(-1, 3)','(-3,-3)','(-3, 0)','(-3, 2)','(-4,-1)','( 0,-4)','( 0, 0)','( 0, 2)',
+             '( 2,-1)','( 2,-3)','( 2, 2)','( 3, 0)']
+    combo2 = ttk.Combobox(frame, values=list2)
     combo2.set("row and column")
 
     c4.pack()
     c5.pack()
     c6.pack()
     c7.pack()
+    c8.pack()
 
+    combo2.pack(pady=5)
     combo1.pack(pady=10)
+
+
     def btn():
         os.startfile('res')
     def btn2():
@@ -249,6 +268,7 @@ def checkbox(file_path):
     link1.pack()
     link1.bind("<Button-1>", lambda e: callback("https://github.com/SBBFU/PE02_A02_SBBFU"))
     link1.place(x=10,y=10)
+
     # link2 = Label(frame, text="Ecosia Hyperlink", fg="blue", cursor="hand2")
     # link2.pack()
     # link2.bind("<Button-1>", lambda e: callback("http://www.ecosia.org"))
@@ -265,7 +285,7 @@ def checkbox(file_path):
     dat_btn.pack()
     dat_btn.place(x=10, y=230)
 
-    save_btn = Button(frame, text="run",command =lambda :[getcombo2(),save_status()])
+    save_btn = Button(frame, text="run",command =lambda :[getcombo2(),getcombo3(),save_status()])
     save_btn.pack(side="bottom",fill="both")
 
 
