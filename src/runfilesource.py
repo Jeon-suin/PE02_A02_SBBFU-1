@@ -1,6 +1,5 @@
 from tkinter import *
-from bs4 import BeautifulSoup
-from dateutil.parser import parse
+from tkinter import messagebox
 import tkinter.ttk as ttk
 import tkinter.font
 import time
@@ -50,6 +49,15 @@ def checkbox(file_path):
 
     def getcombo3():
         return combo2.get()
+
+    def clicked():
+        messagebox.showinfo('help', 'psm401@hanyang.ac.kr')
+    def clicked1():
+        messagebox.showwarning('Error', '옵션을 다시 선택하여 주세요.')
+    def clicked2():
+        messagebox.showwarning('Error', 'figure type를 선택하여 주세요')
+    def clicked3():
+        messagebox.showwarning('Error', 'row and column을 선택하여 주세요')
 
     def check_status(file_path = file_path):
         d = status4_print()
@@ -177,18 +185,18 @@ def checkbox(file_path):
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
 
-        if combo2.get() == 'row and column':
-            print('row and column을 선택하여 주세요')
+        if combo2.get() == 'row & column':
+            clicked3()
         else:
             xml1 = []
             for i in xml:
                 if combo2.get() in i:
                     xml1.append(i)
-                else:
+                elif combo2.get() == 'ALL':
                     xml1 = xml
 
-        for i in xml1:
-            Date.Date(i)
+            for i in xml1:
+                Date.Date(i)
 
 
 
@@ -204,7 +212,7 @@ def checkbox(file_path):
         h = status8_print()
 
         if a + b + c == 0 or d + e + f + g + h == 0:
-            print('옵션을 다시 선택하여 주세요. 프로그램을 종료합니다.')
+            clicked1()
         else:
             start = time.time()
             if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
@@ -326,21 +334,23 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
 
-
-            if combo2.get() == 'row and column':
-                print('row and column을 선택하여 주세요')
+            if combo2.get() == 'row & column':
+                clicked3()
             else:
                 xml1 =[]
                 for i in xml:
                     if combo2.get() in i:
                         xml1.append(i)
-                    else :
+                    elif combo2.get() == 'ALL':
                         xml1 = xml
 
+
+
                 if combo1.get() == 'Pick figure dat':
-                    print('figure type를 선택하여 주세요')
+                    clicked2()
                 else:
-                    xml_tqdm = tqdm(xml1)
+                    for i in xml1:
+                        xml_tqdm = tqdm(xml1)
                     for i in xml_tqdm:
                         filename = i.split('\\')[-1][:-4]
                         xml_tqdm.set_description(f'Processing {filename}')
@@ -364,6 +374,8 @@ def checkbox(file_path):
                         print("모든 파일이 완료되었습니다. 수고하셨습니다.")
 
                     print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
+
+
 
     frame = Frame(window)
     frame.pack()
@@ -394,7 +406,7 @@ def checkbox(file_path):
     list2 = ['ALL','(-1,-1)','(-1,-3)','(-1,3)','(-3,-3)','(-3,0)','(-3,2)','(-4,-1)','(0,-4)','(0,0)','(0,2)',
              '(2,-1)','(2,-3)','(2,2)','(3,0)']
     combo2 = ttk.Combobox(frame, values=list2)
-    combo2.set("row and column")
+    combo2.set("row & column")
 
     c4.pack()
     c5.pack()
@@ -438,7 +450,10 @@ def checkbox(file_path):
     dat_btn.pack()
     dat_btn.place(x=10, y=230)
 
-    save_btn = Button(frame, text="run",command =lambda :[getcombo2(),getcombo3(),save_status()])
+    btn = Button(window, text='help', command=clicked)
+    btn.place(x=450, y=10)
+
+    save_btn = Button(frame, text="run",command =lambda :[getcombo2(),getcombo3(),save_status(),])
     save_btn.pack(side="bottom",fill="both")
 
     check_btn = Button(frame, text="Check", command=lambda: [getcombo3(),check_status()])
