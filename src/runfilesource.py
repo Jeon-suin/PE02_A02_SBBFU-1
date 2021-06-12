@@ -57,6 +57,7 @@ def checkbox(file_path):
         f = status6_print()
         g = status7_print()
         h = status8_print()
+
         if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
@@ -77,6 +78,7 @@ def checkbox(file_path):
             xml = []
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
+
         elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
@@ -85,7 +87,7 @@ def checkbox(file_path):
             file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif f == 1 and d == 1 and e == 0 and g == 0 and h == 0:
+        elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -93,15 +95,15 @@ def checkbox(file_path):
             file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif g == 1 and d == 1 and e == 0 and f == 0 and h == 0:
+        elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
-            file_path1 = '.\dat\P184640\D024\**\*LMZ?.xml'
+            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif e == 1 and f == 1 and d == 0 and g == 0 and h == 0:
+        elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
             file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -109,15 +111,15 @@ def checkbox(file_path):
             file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif e == 1 and g == 1 and d == 0 and f == 0 and h == 0:
+        elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif f == 1 and g == 1 and d == 0 and g == 0 and h == 0:
+        elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -125,6 +127,7 @@ def checkbox(file_path):
             file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
+
         elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
@@ -136,7 +139,7 @@ def checkbox(file_path):
             file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
-        elif e == 1 and d == 1 and g == 1 and f == 0 and h == 0:
+        elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -147,7 +150,7 @@ def checkbox(file_path):
             file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
             for filename in glob.glob(file_path2, recursive=True):
                 xml.append(filename)
-        elif d == 1 and g == 1 and f == 1 and e == 0 and h == 0:
+        elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -158,7 +161,7 @@ def checkbox(file_path):
             file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
             for filename in glob.glob(file_path2, recursive=True):
                 xml.append(filename)
-        elif e == 1 and g == 1 and f == 1 and d == 0 and h == 0:
+        elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
             file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
             xml = []
             for filename in glob.glob(file_path, recursive=True):
@@ -174,15 +177,21 @@ def checkbox(file_path):
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
 
-        xml1 = []
-        for i in xml:
-            if combo2.get() in i:
-                xml1.append(i)
-            else:
-                xml1 = xml
+        if combo2.get() == 'row and column':
+            print('row and column을 선택하여 주세요')
+        else:
+            xml1 = []
+            for i in xml:
+                if combo2.get() in i:
+                    xml1.append(i)
+                else:
+                    xml1 = xml
 
         for i in xml1:
             Date.Date(i)
+
+
+
 
     def save_status(file_path = file_path):
         a = status1_print()
@@ -218,6 +227,7 @@ def checkbox(file_path):
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
+
             elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
@@ -226,7 +236,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif f == 1 and d == 1 and e == 0 and g == 0 and h == 0:
+            elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -234,7 +244,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif g == 1 and d == 1 and e == 0 and f == 0 and h == 0:
+            elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -242,7 +252,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and f == 1 and d == 0 and g == 0 and h == 0:
+            elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -250,15 +260,15 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and g == 1 and d == 0 and f == 0 and h == 0:
+            elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif f == 1 and g == 1 and d == 0 and g == 0 and h == 0:
+            elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -266,6 +276,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
+
             elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
@@ -277,7 +288,7 @@ def checkbox(file_path):
                 file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-            elif e == 1 and d == 1 and g == 1 and f == 0 and h == 0:
+            elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -288,7 +299,7 @@ def checkbox(file_path):
                 file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
-            elif d == 1 and g == 1 and f == 1 and e == 0 and h == 0:
+            elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -299,7 +310,7 @@ def checkbox(file_path):
                 file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
-            elif e == 1 and g == 1 and f == 1 and d == 0 and h == 0:
+            elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
                 file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
@@ -315,43 +326,44 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
 
-            xml1 =[]
-            for i in xml:
-                if combo2.get() in i:
-                    xml1.append(i)
-                elif combo2.get() == 'ALL':
-                    xml1 = xml
+
+            if combo2.get() == 'row and column':
+                print('row and column을 선택하여 주세요')
+            else:
+                xml1 =[]
+                for i in xml:
+                    if combo2.get() in i:
+                        xml1.append(i)
+                    else :
+                        xml1 = xml
+
+                if combo1.get() == 'Pick figure dat':
+                    print('figure type를 선택하여 주세요')
                 else:
-                    print('row and column을 선택하여 주세요')
+                    xml_tqdm = tqdm(xml1)
+                    for i in xml_tqdm:
+                        filename = i.split('\\')[-1][:-4]
+                        xml_tqdm.set_description(f'Processing {filename}')
 
+                        # fitting 실행
+                        if combo1.get() == 'All figure':
+                            process.fitting(i, a, b)
+                        elif combo1.get() == 'Transmission spectra':
+                            Measured_Spectra.Measured(i, a, b)
+                        elif combo1.get() == 'IV raw dat':
+                            IVfitting.IVfitting(i, a, b)
+                        elif combo1.get() == 'Processed and fitting':
+                            Ref_fitting.Ref_fitting(i, a, b)
+                        else:
+                            Processed_spectra.Pro_spe(i, a, b)
 
-            xml_tqdm = tqdm(xml1)
-            for i in xml_tqdm:
-                filename = i.split('\\')[-1][:-4]
-                xml_tqdm.set_description(f'Processing {filename}')
+                    # csv 실행
+                    process.csv_mod(i, c)
 
+                    if int(xml.index(i)) + 1 == len(xml):
+                        print("모든 파일이 완료되었습니다. 수고하셨습니다.")
 
-                # fitting 실행
-                if combo1.get() == 'All figure':
-                    process.fitting(i, a, b)
-                elif combo1.get() == 'Transmission spectra':
-                    Measured_Spectra.Measured(i, a, b)
-                elif combo1.get() == 'IV raw dat':
-                    IVfitting.IVfitting(i, a, b)
-                elif combo1.get() == 'Processed and fitting':
-                    Ref_fitting.Ref_fitting(i, a, b)
-                elif combo1.get() == 'Spectra except ref':
-                    Processed_spectra.Pro_spe(i, a, b)
-                else:
-                    print('figure을 선택하여 주세요')
-
-                # csv 실행
-                process.csv_mod(i, c)
-
-            if int(xml.index(i)) + 1 == len(xml):
-                print("모든 파일이 완료되었습니다. 수고하셨습니다.")
-
-            print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
+                    print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
 
     frame = Frame(window)
     frame.pack()
