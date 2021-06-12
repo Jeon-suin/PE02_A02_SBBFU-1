@@ -344,13 +344,10 @@ def checkbox(file_path):
                     elif combo2.get() == 'ALL':
                         xml1 = xml
 
-
-
                 if combo1.get() == 'Pick figure dat':
                     clicked2()
                 else:
-                    for i in xml1:
-                        xml_tqdm = tqdm(xml1)
+                    xml_tqdm = tqdm(xml1)
                     for i in xml_tqdm:
                         filename = i.split('\\')[-1][:-4]
                         xml_tqdm.set_description(f'Processing {filename}')
@@ -367,13 +364,17 @@ def checkbox(file_path):
                         else:
                             Processed_spectra.Pro_spe(i, a, b)
 
-                    # csv 실행
+                        # csv 실행
                     process.csv_mod(i, c)
 
-                    if int(xml.index(i)) + 1 == len(xml):
-                        print("모든 파일이 완료되었습니다. 수고하셨습니다.")
+                if int(xml1.index(i)) + 1 == len(xml1):
+                    print("모든 파일이 완료되었습니다. 수고하셨습니다.")
 
-                    print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
+                print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
+
+
+
+
 
 
 
