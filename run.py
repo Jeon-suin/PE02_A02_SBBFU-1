@@ -1,5 +1,4 @@
 from src import runfilesource as rs
+from src.datalocation import path
 
-file_path = '.\dat\P184640\**\*LMZ?.xml'
-
-rs.checkbox(file_path)
+rs.checkbox(path)
