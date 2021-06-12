@@ -7,4 +7,4 @@ def Date(filename):
     soup = BeautifulSoup(fp, "html.parser")
     Date = soup.select('oiomeasurement')[0]['creationdate']
     Date = parse(Date).strftime("%Y%m%d_%H시%M분%S초")
-    print(filename.split('\\')[-1][:-4], '데이터는', Date, '에 측정되었습니다.')
+    print(filename.split('\\')[-1][:-4], '는', Date, '에 측정되었습니다.')
