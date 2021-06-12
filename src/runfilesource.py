@@ -66,137 +66,140 @@ def checkbox(file_path):
         g = status7_print()
         h = status8_print()
 
-        if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-        elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-        elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D23\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-        elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
-            file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-
-        elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-
-        elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-        elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-            file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
-            for filename in glob.glob(file_path2, recursive=True):
-                xml.append(filename)
-        elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-            file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path2, recursive=True):
-                xml.append(filename)
-        elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
-            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
-            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
-            for filename in glob.glob(file_path1, recursive=True):
-                xml.append(filename)
-            file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
-            for filename in glob.glob(file_path2, recursive=True):
-                xml.append(filename)
+        if d + e + f + g + h == 0:
+            clicked1()
         else:
-            xml = []
-            for filename in glob.glob(file_path, recursive=True):
-                xml.append(filename)
+            if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+            elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+            elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D23\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+            elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
+                file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
 
-        if combo2.get() == 'row & column':
-            clicked3()
-        else:
-            xml1 = []
-            for i in xml:
-                if combo2.get() in i:
-                    xml1.append(i)
-                elif combo2.get() == 'ALL':
-                    xml1 = xml
+            elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
 
-            for i in xml1:
-                Date.Date(i)
+            elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+            elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+                file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
+                for filename in glob.glob(file_path2, recursive=True):
+                    xml.append(filename)
+            elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+                file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path2, recursive=True):
+                    xml.append(filename)
+            elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
+                file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+                file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+                for filename in glob.glob(file_path1, recursive=True):
+                    xml.append(filename)
+                file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
+                for filename in glob.glob(file_path2, recursive=True):
+                    xml.append(filename)
+            else:
+                xml = []
+                for filename in glob.glob(file_path, recursive=True):
+                    xml.append(filename)
+
+            if combo2.get() == 'row & column':
+                clicked3()
+            else:
+                xml1 = []
+                for i in xml:
+                    if combo2.get() in i:
+                        xml1.append(i)
+                    elif combo2.get() == 'ALL':
+                        xml1 = xml
+
+                for i in xml1:
+                    Date.Date(i)
 
 
 
@@ -371,10 +374,6 @@ def checkbox(file_path):
                     print("모든 파일이 완료되었습니다. 수고하셨습니다.")
 
                 print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
-
-
-
-
 
 
 
