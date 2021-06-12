@@ -152,7 +152,7 @@ def checkbox(file_path):
             xml = []
             for filename in glob.glob(file_path, recursive=True):
                 xml.append(filename)
-            file_path1 = '.\dat\P184640\D04\**\*LMZ?.xml'
+            file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
             for filename in glob.glob(file_path1, recursive=True):
                 xml.append(filename)
             file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
