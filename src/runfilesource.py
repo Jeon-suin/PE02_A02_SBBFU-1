@@ -10,6 +10,7 @@ import shutil
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
 from src import Date
+from _datetime import datetime
 try:
     shutil.rmtree('.\\res\\csv')
 except:
@@ -375,7 +376,16 @@ def checkbox(file_path):
 
                 print("실행 시간 :" + str(round(time.time() - start, 1)) + "초")
 
+    def clock():
+        now = datetime.now()
+        timelabeled = ("%s/%s/%s %s:%s:%s" % (now.year, now.month, now.day, now.hour, now.minute, now.second))
+        w.config(text=timelabeled)
+        window.after(1000, clock)
 
+    w = Label(font=('Helvetica',10),fg = 'black')
+    w.pack()
+    w.place(x = 10, y = 10)
+    clock()
 
     frame = Frame(window)
     frame.pack()
@@ -392,12 +402,13 @@ def checkbox(file_path):
     c7 = Checkbutton(frame, text="D24", variable=CheckVar7, command=status7_print)
     c8 = Checkbutton(frame, text="ALL", variable=CheckVar8, command=status8_print)
 
-    label = tkinter.Label(frame, text="Wafer", width=4, height=3, fg="black", )
+    label = Label(frame, borderwidth = 6,width = 30,relief='ridge',text="Wafer", height=2, fg="black")
     label.pack()
 
-    label2 = tkinter.Label(window, text="made by A02", fg="black", )
+    label2 =Label(window, text="made by A02", fg="blue", cursor="hand2" )
     label2.pack()
-    label2.place(x=420,y=380)
+    label2.bind("<Button-1>", lambda e: callback("https://github.com/SBBFU/PE02_A02_SBBFU"))
+    label2.place(x=415,y=357)
 
     list1 = ['Transmission spectra','IV raw dat','Processed and fitting','Spectra except ref','All figure']
     combo1 = ttk.Combobox(frame, values=list1)
@@ -429,26 +440,21 @@ def checkbox(file_path):
     def callback(url):
         webbrowser.open_new(url)
 
-    link1 = Label(window, text="Github", fg="blue", cursor="hand2")
-    link1.pack()
-    link1.bind("<Button-1>", lambda e: callback("https://github.com/SBBFU/PE02_A02_SBBFU"))
-    link1.place(x=10,y=10)
-
     # link2 = Label(frame, text="Ecosia Hyperlink", fg="blue", cursor="hand2")
     # link2.pack()
     # link2.bind("<Button-1>", lambda e: callback("http://www.ecosia.org"))
 
     doc_btn = Button(window,width=15 ,text="Final Report", command=btn2)
     doc_btn.pack()
-    doc_btn.place(x=10, y= 290)
+    doc_btn.place(x=10, y= 350)
 
     res_btn = Button(window, width=15,text="res folder", command=btn)
     res_btn.pack()
-    res_btn.place(x=10,y=260)
+    res_btn.place(x=10,y=320)
 
     dat_btn = Button(window, width=15, text="dat folder", command=btn3)
     dat_btn.pack()
-    dat_btn.place(x=10, y=230)
+    dat_btn.place(x=10, y=290)
 
     btn = Button(window, text='help', command=clicked)
     btn.place(x=450, y=10)
@@ -471,5 +477,5 @@ def checkbox(file_path):
     c2.pack()
     c3.pack()
 
-    window.geometry('500x400+220+200')
+    window.geometry('500x390+220+200')
     window.mainloop()
