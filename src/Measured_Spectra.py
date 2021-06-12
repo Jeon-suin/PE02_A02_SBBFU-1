@@ -37,13 +37,13 @@ def Measured(filename,custom_a,custom_w):
     plt.legend(loc='lower center', ncol=3)
 
     fname = filename.split('\\')[-1][:-4]
-    plt.suptitle(filename)
+    plt.suptitle(fname)
     fig = plt.gcf()
     fig.set_size_inches((27, 15), forward=False)
 
     if custom_a == 1:
-        if not os.path.exists('.\\PE02_A02_SBBFU\\res\\figure'):
-            os.makedirs('.\\PE02_A02_SBBFU\\res\\figure')
+        if not os.path.exists('.\\res\\figure'):
+            os.makedirs('.\\res\\figure')
         if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
             os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
         if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):

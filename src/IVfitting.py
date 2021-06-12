@@ -7,6 +7,9 @@ import statsmodels.api as sm
 import warnings
 warnings.filterwarnings(action='ignore')
 import os
+import time
+
+
 def IVfitting(filename,custom_a,custom_w):
 
     fp = open(filename, "r")
@@ -56,7 +59,7 @@ def IVfitting(filename,custom_a,custom_w):
     plt.legend(loc='center left')
 
     fname = filename.split('\\')[-1][:-4]
-    plt.suptitle(filename)
+    plt.suptitle(fname)
     fig = plt.gcf()
     fig.set_size_inches((27,15), forward=False)
 
@@ -73,7 +76,7 @@ def IVfitting(filename,custom_a,custom_w):
                                                             filename.split('\\')[4]))
         plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
                                                                 filename.split('\\')[4], fname))
-
+        time.sleep(1.5)
     # show figure 옵션
 
     if custom_w == 1:
