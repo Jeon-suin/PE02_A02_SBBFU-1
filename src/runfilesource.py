@@ -1,4 +1,6 @@
 from tkinter import *
+from bs4 import BeautifulSoup
+from dateutil.parser import parse
 import tkinter.ttk as ttk
 import tkinter.font
 import time
@@ -8,7 +10,7 @@ import webbrowser
 import shutil
 from tqdm import tqdm
 from src import process , IVfitting, Measured_Spectra , Processed_spectra , Ref_fitting ,tocsv
-
+from src import Date
 try:
     shutil.rmtree('.\\res\\csv')
 except:
@@ -48,6 +50,139 @@ def checkbox(file_path):
 
     def getcombo3():
         return combo2.get()
+
+    def check_status(file_path = file_path):
+        d = status4_print()
+        e = status5_print()
+        f = status6_print()
+        g = status7_print()
+        h = status8_print()
+        if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+        elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+        elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D23\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+        elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
+            file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+        elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif f == 1 and d == 1 and e == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif g == 1 and d == 1 and e == 0 and f == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D024\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif e == 1 and f == 1 and d == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif e == 1 and g == 1 and d == 0 and f == 0 and h == 0:
+            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif f == 1 and g == 1 and d == 0 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D24\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+        elif e == 1 and d == 1 and g == 1 and f == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D08\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+            file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
+            for filename in glob.glob(file_path2, recursive=True):
+                xml.append(filename)
+        elif d == 1 and g == 1 and f == 1 and e == 0 and h == 0:
+            file_path = '.\dat\P184640\D07\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D04\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+            file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path2, recursive=True):
+                xml.append(filename)
+        elif e == 1 and g == 1 and f == 1 and d == 0 and h == 0:
+            file_path = '.\dat\P184640\D08\**\*LMZ?.xml'
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+            file_path1 = '.\dat\P184640\D23\**\*LMZ?.xml'
+            for filename in glob.glob(file_path1, recursive=True):
+                xml.append(filename)
+            file_path2 = '.\dat\P184640\D24\**\*LMZ?.xml'
+            for filename in glob.glob(file_path2, recursive=True):
+                xml.append(filename)
+        else:
+            xml = []
+            for filename in glob.glob(file_path, recursive=True):
+                xml.append(filename)
+
+        xml1 = []
+        for i in xml:
+            if combo2.get() in i:
+                xml1.append(i)
+            else:
+                xml1 = xml
+
+        for i in xml1:
+            Date.Date(i)
 
     def save_status(file_path = file_path):
         a = status1_print()
@@ -104,7 +239,7 @@ def checkbox(file_path):
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-                file_path1 = '.\dat\P184640\D024\**\*LMZ?.xml'
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif e == 1 and f == 1 and d == 0 and g == 0 and h == 0:
@@ -158,7 +293,7 @@ def checkbox(file_path):
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-                file_path1 = '.\dat\P184640\D04\**\*LMZ?.xml'
+                file_path1 = '.\dat\P184640\D24\**\*LMZ?.xml'
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
                 file_path2 = '.\dat\P184640\D23\**\*LMZ?.xml'
@@ -179,12 +314,16 @@ def checkbox(file_path):
                 xml = []
                 for filename in glob.glob(file_path, recursive=True):
                     xml.append(filename)
-            xml1=[]
+
+            xml1 =[]
             for i in xml:
                 if combo2.get() in i:
-                  xml1.append(i)
-                else:
+                    xml1.append(i)
+                elif combo2.get() == 'ALL':
                     xml1 = xml
+                else:
+                    print('row and column을 선택하여 주세요')
+
 
             xml_tqdm = tqdm(xml1)
             for i in xml_tqdm:
@@ -201,8 +340,10 @@ def checkbox(file_path):
                     IVfitting.IVfitting(i, a, b)
                 elif combo1.get() == 'Processed and fitting':
                     Ref_fitting.Ref_fitting(i, a, b)
-                else:
+                elif combo1.get() == 'Spectra except ref':
                     Processed_spectra.Pro_spe(i, a, b)
+                else:
+                    print('figure을 선택하여 주세요')
 
                 # csv 실행
                 process.csv_mod(i, c)
@@ -238,8 +379,8 @@ def checkbox(file_path):
     combo1 = ttk.Combobox(frame, values=list1)
     combo1.set("Pick figure dat")
 
-    list2 = ['ALL','(-1,-1)','(-1,-3)','(-1, 3)','(-3,-3)','(-3, 0)','(-3, 2)','(-4,-1)','( 0,-4)','( 0, 0)','( 0, 2)',
-             '( 2,-1)','( 2,-3)','( 2, 2)','( 3, 0)']
+    list2 = ['ALL','(-1,-1)','(-1,-3)','(-1,3)','(-3,-3)','(-3,0)','(-3,2)','(-4,-1)','(0,-4)','(0,0)','(0,2)',
+             '(2,-1)','(2,-3)','(2,2)','(3,0)']
     combo2 = ttk.Combobox(frame, values=list2)
     combo2.set("row and column")
 
@@ -249,7 +390,7 @@ def checkbox(file_path):
     c7.pack()
     c8.pack()
 
-    combo2.pack(pady=5)
+    combo2.pack(pady=10)
     combo1.pack(pady=10)
 
 
@@ -288,6 +429,8 @@ def checkbox(file_path):
     save_btn = Button(frame, text="run",command =lambda :[getcombo2(),getcombo3(),save_status()])
     save_btn.pack(side="bottom",fill="both")
 
+    check_btn = Button(frame, text="Check", command=lambda: [getcombo3(),check_status()])
+    check_btn.pack(side="bottom", fill="both")
 
     CheckVar1 = IntVar()
     CheckVar2 = IntVar()
