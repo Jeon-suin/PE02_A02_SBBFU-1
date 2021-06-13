@@ -7,6 +7,7 @@ from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
 import os
+import datetime
 import warnings
 
 warnings.filterwarnings(action='ignore')
@@ -263,9 +264,21 @@ def csv_mod(filename, custom_csv):
                  'JoohanBae,Parkseoungmin,Jeonsuin', Row, Column,
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
+
+
     if custom_csv == 1:
-        if not os.path.exists('.\\res\\csv\\process_Result.csv'):
-            os.makedirs('.\\res\\csv\\')
-            df.to_csv(".\\res\\csv\\process_Result.csv", mode='w', index=False)
+
+        now = datetime.datetime.now()
+        num = now.strftime('%Y%m%d-%H%M%S')
+        version = str(num)
+
+        if not os.path.exists('.\\res\\csv\\process_Result%s.csv'%version):
+            df.to_csv('.\\res\\csv\\process_Result%s.csv'%version, mode='w', index=False)
         else:
-            df.to_csv(".\\res\\csv\\process_Result.csv", mode='a', index=False, header=False)
+            df.to_csv('.\\res\\csv\\process_Result%s.csv'%version, mode='a', index=False, header=False)
+
+
+
+
+
+

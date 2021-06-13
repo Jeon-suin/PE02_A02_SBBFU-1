@@ -9,7 +9,6 @@ warnings.filterwarnings(action='ignore')
 import os
 import time
 
-
 def IVfitting(filename,custom_a,custom_w):
 
     fp = open(filename, "r")
@@ -76,7 +75,9 @@ def IVfitting(filename,custom_a,custom_w):
                                                             filename.split('\\')[4]))
         plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
                                                                 filename.split('\\')[4], fname))
-        time.sleep(1.5)
+        if custom_w == 0:
+            plt.show(block=False)
+            plt.close()
     # show figure 옵션
 
     if custom_w == 1:
