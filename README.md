@@ -22,7 +22,7 @@
 > + Die row & colum
 > 
 > We can analyze the selected data by specifying specific elements
-> In order to develop such analysis software, a black box(software) that \n implements this function is created to solve the customer's request.
+> In order to develop such analysis software, a black box(software) that implements this function is created to solve the customer's request.
 >
 > Please put the data in the 'dat' folder specify the file path Run the Run.py 
 
@@ -39,11 +39,11 @@
 >``(base) C:\Download\PE02_A02_SBBFU-1>pip install -r requirements.txt``
 >
 >* How to Run
->   + Please enter the file_location and parameter of save_figure, show_figure, save_csv. \
-``file_path = '.\dat\P184640\**\*LMZ?.xml'``\
+>   + Choose the raw data folder customer want to analyze.
+>   + Choose to automatically start data analysis.
 >   
 >	 + After select the data you want to analyze, select various options such as wafer, die option, figure shape (show figure, save figure, save csv) and press run button.
- ![image](https://user-images.githubusercontent.com/84078034/121799780-f55b5280-cc68-11eb-859f-a0cf73b37ee1.png)
+<img src = "https://user-images.githubusercontent.com/84078034/121799780-f55b5280-cc68-11eb-859f-a0cf73b37ee1.png" width="350" height="300">
 
 
 ### 4. Description of the module file feature
@@ -51,7 +51,7 @@
 ##### 1) Fitting module
   >-   The graph is drawn by parsing the raw data of Wavelengthsweep, IL, Current, and Voltage in the xml file.
   >-   The fitting of parsing a raw data and displays the data value y-axis corresponding to x-axis by the customer and the desired R-squared, etc. and stored in the graph to visualize the image.
- ![image](https://user-images.githubusercontent.com/84078034/121302547-d2613380-c934-11eb-8ef4-6b330f316406.png)
+ <img src ="https://user-images.githubusercontent.com/84078034/121302547-d2613380-c934-11eb-8ef4-6b330f316406.png" width="600" height="350">
 
 ##### 2) CSV module
   >- The following photo is a csv file that analyzes the data provided by the customer.
@@ -60,11 +60,12 @@
   >- Save this data frome in csv format in the 'Result' folder.
   >- If 'r-squared' is less than 0.95, an ‘Errorflag’ appears in the csv file.
 
- ![캡처](https://user-images.githubusercontent.com/80964488/117802539-903ec680-b290-11eb-969f-6fd459a8d594.PNG)
+ <img src = "https://user-images.githubusercontent.com/80964488/117802539-903ec680-b290-11eb-969f-6fd459a8d594.PNG" width= "600" height="350">
  
 ### 5. :warning:precautions:warning:
  >- 1) You must select all the options in the 'Checkbox'. If you don't, you'll make a error.
  >- 2) When fitting sometimes doesn't work, it keeps running until fitting is done well.
+ >- 3) If you choose the All option when Wafer is selected, you must not choose any other option.
  
 ### 6. :raised_hands:contributors:raised_hands:
  >- Jeon su in :girl: : qqy78@hanmail.net
