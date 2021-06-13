@@ -1,7 +1,5 @@
 *.xml
 *.png
 *.csv
-!res/.keep
-!dat/.keep
 /.idea/
 /.ipynb_checkpoints/
