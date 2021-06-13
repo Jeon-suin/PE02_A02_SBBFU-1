@@ -9,7 +9,12 @@
 ---
 ### 1. Introduction
 ##### - PE2 : SBBFU Project
-##### - contributors : 박승민, 배주한, 전수인
+##### - contributors : 
+
+>- Jeon su in :girl: : qqy78@hanmail.net
+>- Park seoung min :boy: : psm401@hanyang.ac.kr
+>>- Bae ju han :boy: : noreply@github.com
+
 
 > - We aim to develop Python-based data analysis software \
 > The goal is to develop software that can analyze wafer scale data in detail.
@@ -63,16 +68,12 @@
  <img src = "https://user-images.githubusercontent.com/80964488/117802539-903ec680-b290-11eb-969f-6fd459a8d594.PNG" width= "600" height="350">
  
 ### 5. :warning:precautions:warning:
- >- 1) You must select all the options in the 'Checkbox'. If you don't, you'll make a error.
- >- 2) When fitting sometimes doesn't work, it keeps running until fitting is done well.
- >- 3) If you choose the All option when Wafer is selected, you must not choose any other option.
- 
-### 6. :raised_hands:contributors:raised_hands:
- >- Jeon su in :girl: : qqy78@hanmail.net
- >- Park seoung min :boy: : psm401@hanyang.ac.kr
- >- Bae ju han :boy: : noreply@github.com
 
-### 7. Conclusion
+ 1) You must select all the options in the 'Checkbox'. If you don't, you'll make a error.
+ 2) When fitting sometimes doesn't work, it keeps running until fitting is done well.
+ 3) If you choose the All option when Wafer is selected, you must not choose any other option.
+ 
+### 6. Conclusion
   >- After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
   >- Save this fitting figure in the ‘result’ folder.
   >- Save the csv file to the 'result' folder based on the data provided by the customer.
