@@ -47,7 +47,7 @@ def checkbox(file_path):
         return combo2.get()
 
     def clicked():
-        messagebox.showinfo('help', 'psm401@hanyang.ac.kr')
+        messagebox.showinfo('help', 'psm401@hanyang.ac.kr \n qqy78@hanmail.net \n noreply@github.com')
     def clicked1():
         messagebox.showwarning('Error', 'Please select wafers')
     def clicked2():
@@ -363,14 +363,12 @@ def checkbox(file_path):
                         if combo1.get() == 'All figure':
                             if Rsqu.Rsqu(i) < 0.95:
                                 clicked5()
-                                print(i,'I-V fitting is invalid')
                             process.fitting(i, a, b)
                         elif combo1.get() == 'Transmission spectra':
                             Measured_Spectra.Measured(i, a, b)
                         elif combo1.get() == 'IV raw dat':
                             if Rsqu.Rsqu(i) < 0.95:
                                 clicked5()
-                                print(i, 'I-V fitting is invalid')
                             IVfitting.IVfitting(i, a, b)
                         elif combo1.get() == 'Processed and fitting':
                             Ref_fitting.Ref_fitting(i, a, b)
