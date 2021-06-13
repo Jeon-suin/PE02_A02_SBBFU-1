@@ -9,15 +9,14 @@
 ---
 ### 1. Introduction
 ##### - PE2 : SBBFU Project
+> - We aim to develop Python-based data analysis software \
+> The goal is to develop software that can analyze wafer scale data in detail.
 ##### - contributors : 
 
 >- Jeon su in :girl: : qqy78@hanmail.net
 >- Park seoung min :boy: : psm401@hanyang.ac.kr
->>- Bae ju han :boy: : noreply@github.com
+>- Bae ju han :boy: : noreply@github.com
 
-
-> - We aim to develop Python-based data analysis software \
-> The goal is to develop software that can analyze wafer scale data in detail.
 ### 2. Objective of project
   ##### 1) Detailed project 
 > ##### The main task is to receive data from the customer and then receive the request.
