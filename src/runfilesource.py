@@ -71,90 +71,90 @@ def checkbox(file_path):
             clicked1()
         else:
             if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D08')
+                file_path0 = dl.data(file_path,'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D23')
+                file_path0 = dl.data(file_path,'D23')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
-                file_path = dl.data(file_path,'D24')
+                file_path0 = dl.data(file_path,'D24')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
 
             elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D08')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D24')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D08')
+                file_path0 = dl.data(file_path,'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D08')
+                file_path0 = dl.data(file_path,'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D24')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D24')
+                file_path0 = dl.data(file_path,'D24')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
 
             elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D08')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-                file_path1 = dl.data(file_path,'D23')
-                for filename in glob.glob(file_path1, recursive=True):
+                file_path2 = dl.data(file_path,'D23')
+                for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D08')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -163,9 +163,9 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D07')
+                file_path0 = dl.data(file_path,'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D24')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -174,9 +174,9 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path,'D08')
+                file_path0 = dl.data(file_path,'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path,'D23')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -225,90 +225,90 @@ def checkbox(file_path):
         else:
             start = time.time()
             if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif e == 1 and d == 0 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D08')
+                file_path0 = dl.data(file_path, 'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif f == 1 and d == 0 and e == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D23')
+                file_path0 = dl.data(file_path, 'D23')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
             elif g == 1 and f == 0 and d == 0 and e == 0 and h == 0:
-                file_path = dl.data(file_path, 'D24')
+                file_path0 = dl.data(file_path, 'D24')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
 
             elif d == 1 and e == 1 and f == 0 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D08')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D24')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D08')
+                file_path0 = dl.data(file_path, 'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D08')
+                file_path0 = dl.data(file_path, 'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D24')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D24')
+                file_path0 = dl.data(file_path, 'D24')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
 
             elif d == 1 and e == 1 and f == 1 and g == 0 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D08')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-                file_path1 = dl.data(file_path, 'D23')
-                for filename in glob.glob(file_path1, recursive=True):
+                file_path2 = dl.data(file_path, 'D23')
+                for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 1 and f == 0 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D08')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -317,9 +317,9 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 1 and e == 0 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D07')
+                file_path0 = dl.data(file_path, 'D07')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D24')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -328,9 +328,9 @@ def checkbox(file_path):
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
-                file_path = dl.data(file_path, 'D08')
+                file_path0 = dl.data(file_path, 'D08')
                 xml = []
-                for filename in glob.glob(file_path, recursive=True):
+                for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
                 file_path1 = dl.data(file_path, 'D23')
                 for filename in glob.glob(file_path1, recursive=True):
@@ -378,12 +378,14 @@ def checkbox(file_path):
                             Processed_spectra.Pro_spe(i, a, b)
 
                         # csv 실행
-                    process.csv_mod(i, c)
+                        process.csv_mod(i, c)
 
                     if int(xml1.index(i)) + 1 == len(xml1):
                         print("All files are complete. Thank you for your efforts")
 
                     print("Run Time :" + str(round(time.time() - start, 1)) + "seconds")
+
+
 
     def clock():
         now = datetime.now()
