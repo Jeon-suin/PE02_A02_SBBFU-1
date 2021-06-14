@@ -363,8 +363,6 @@ def checkbox(file_path,version):
 
                         # fitting 실행
                         if combo1.get() == 'All figure':
-                            if Rsqu.Rsqu(i) < 0.95:
-                                clicked5()
                             process.fitting(i, a, b)
                         elif combo1.get() == 'Transmission spectra':
                             Measured_Spectra.Measured(i, a, b)
