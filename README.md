@@ -12,10 +12,11 @@
 > - We aim to develop Python-based data analysis software \
 > The goal is to develop software that can analyze wafer scale data in detail.
 #### - contributors : 
-
->- Jeon su in :girl: : qqy78@hanmail.net
->- Park seoung min :boy: : psm401@hanyang.ac.kr
->- Bae ju han :boy: : noreply@github.com
+|name|E-mail|:smile:|
+|:---:|:---:|:---:|
+|Jeon su in:girl:|qqy78@hanmail.net|<img src = "https://user-images.githubusercontent.com/84078034/121825406-2aa98400-cced-11eb-82d7-3fbbb3cdff28.png" width = "100" height = "100">|
+|Park seoung min:boy:|psm401@hanyang.ac.kr|<img src = "https://user-images.githubusercontent.com/84078034/121825519-e074d280-cced-11eb-8507-995dd571eaf4.png" width = "100" height = "100">|
+|Bae joo han :boy:|joohan0115@hanyang.ac.kr|<img src = "https://user-images.githubusercontent.com/84078034/121825720-e7501500-ccee-11eb-9093-d83795514a94.png" width = "100" height = "100">|
 
 ## 2. Objective of project
   #### 1) Detailed project 
