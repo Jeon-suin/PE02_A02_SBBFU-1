@@ -270,6 +270,11 @@ def csv_mod(filename,version ,custom_csv):
         location = 'process_Result%s.csv'%version
         # if datetime.datetime.now().minute in os.path.basename('.\\res\\csv\\'):
         if not os.path.exists('.\\res\\csv\\%s'%location):
+            try:
+                os.makedirs('.\\res\\csv\\')
+            except:
+                FileExistsError
+                pass
             df.to_csv('.\\res\\csv\\%s'%location, mode='w', index=False)
         else:
             df.to_csv('.\\res\\csv\\%s'%location, mode='a', index=False, header=False)
