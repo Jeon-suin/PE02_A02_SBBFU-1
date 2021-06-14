@@ -7,7 +7,6 @@ from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
 import os
-import datetime
 import warnings
 
 warnings.filterwarnings(action='ignore')
@@ -190,7 +189,7 @@ def fitting(filename, custom_a, custom_w):
 #######################################################################################################################
 
 
-def csv_mod(filename, custom_csv):
+def csv_mod(filename,version ,custom_csv):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -265,12 +264,11 @@ def csv_mod(filename, custom_csv):
                  error_flag_list[0],
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
 
-    now = datetime.datetime.now()
-    num = now.strftime('%Y%m%d-%H%M')
-    version = str(num)
+
 
     if custom_csv == 1:
         location = 'process_Result%s.csv'%version
+        # if datetime.datetime.now().minute in os.path.basename('.\\res\\csv\\'):
         if not os.path.exists('.\\res\\csv\\%s'%location):
             df.to_csv('.\\res\\csv\\%s'%location, mode='w', index=False)
         else:

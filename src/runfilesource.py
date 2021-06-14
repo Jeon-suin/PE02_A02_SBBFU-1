@@ -12,7 +12,7 @@ from src import Date
 from _datetime import datetime
 from src import Rsqu
 
-def checkbox(file_path):
+def checkbox(file_path,version):
     window = Tk()
     window.title("Run to data")
 
@@ -59,7 +59,7 @@ def checkbox(file_path):
     def clicked5():
         messagebox.showwarning('Error', 'I-V fitting is invalid')
 
-    def check_status(file_path = file_path):
+    def check_status(file_path = file_path,version =version):
         file_path = '%s'%file_path
         d = status4_print()
         e = status5_print()
@@ -378,7 +378,7 @@ def checkbox(file_path):
                             Processed_spectra.Pro_spe(i, a, b)
 
                         # csv 실행
-                        process.csv_mod(i, c)
+                        process.csv_mod(i,version,c)
 
                     if int(xml1.index(i)) + 1 == len(xml1):
                         print("All files are complete. Thank you for your efforts")
