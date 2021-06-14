@@ -2,6 +2,6 @@
 *.png
 *.csv
 !res/csv/.keep
-!doc/.keep
+!dat/.keep
 /.idea/
 /.ipynb_checkpoints/

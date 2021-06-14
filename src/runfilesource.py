@@ -47,7 +47,7 @@ def checkbox(file_path):
         return combo2.get()
 
     def clicked():
-        messagebox.showinfo('help', 'psm401@hanyang.ac.kr \n qqy78@hanmail.net \n noreply@github.com')
+        messagebox.showinfo('help', 'psm401@hanyang.ac.kr \nqqy78@hanmail.net \njoohan0115@hanyang.ac.kr')
     def clicked1():
         messagebox.showwarning('Error', 'Please select wafers')
     def clicked2():
@@ -220,6 +220,8 @@ def checkbox(file_path):
             clicked4()
         elif a + b + c != 0 and d + e + f + g + h == 0:
             clicked1()
+        elif a + b + c == 0 and d + e + f + g + h != 0:
+            clicked4()
         else:
             start = time.time()
             if d == 1 and e == 0 and f == 0 and g == 0 and h == 0:
@@ -378,10 +380,10 @@ def checkbox(file_path):
                         # csv 실행
                     process.csv_mod(i, c)
 
-                if int(xml1.index(i)) + 1 == len(xml1):
-                    print("All files are complete. Thank you for your efforts")
+                    if int(xml1.index(i)) + 1 == len(xml1):
+                        print("All files are complete. Thank you for your efforts")
 
-                print("Run Time :" + str(round(time.time() - start, 1)) + "seconds")
+                    print("Run Time :" + str(round(time.time() - start, 1)) + "seconds")
 
     def clock():
         now = datetime.now()
