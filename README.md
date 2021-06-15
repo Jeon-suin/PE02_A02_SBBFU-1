@@ -4,8 +4,8 @@
 ### :pencil:Contents
 
 [1. Introduction](#1-introduction)\
-[2. Objective of project](#2-objective-of-project)\
-[3. Project information](#3-project-information)\
+[2. Project information](#2-project-information)\
+[3. Install and Run](#3-install-and-run)\
 [4. Description of the module file feature](#4-description-of-the-module-file-feature)
 
 ---
@@ -32,7 +32,7 @@ The goal is to develop software that can analyze wafer scale data in detail.
 
 ---
 
-## 2. Objective of project
+## 2. Project information
  #### 
  + **Detailed project**
  
@@ -53,7 +53,7 @@ The goal is to develop software that can analyze wafer scale data in detail.
 
 ---
 
-## 3. Project information
+## 3. Install and Run
 
 ####
 * Getting Stared
