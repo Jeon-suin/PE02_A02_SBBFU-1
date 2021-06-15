@@ -66,13 +66,14 @@
   >- Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
   >- Save this data frome in csv format in the 'Result' folder.
  
+## 5. Conclusion
+  >- After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
+  >- Save this fitting figure in the ‘result’ folder.
+  >- Save the csv file to the 'result' folder based on the data provided by the customer.
+
 ## :warning:precautions:warning:
 
  1) You must select all the options in the 'Checkbox'. If you don't, you'll make a error.
  2) When fitting sometimes doesn't work, it keeps running until fitting is done well.
  3) If you choose the All option when Wafer is selected, you must not choose any other option.
  
-## 5. Conclusion
-  >- After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
-  >- Save this fitting figure in the ‘result’ folder.
-  >- Save the csv file to the 'result' folder based on the data provided by the customer.
