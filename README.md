@@ -19,7 +19,7 @@
 
 ## 1. Introduction
 #### - PE2 : SBBFU Project
-We aim to develop Python-based data analysis software. 
+We aim to develop Python-based data analysis software. \
 The goal is to develop software that can analyze wafer scale data in detail.
 
 #### - contributors : If you have any questions, please contact us at the following email.
