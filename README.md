@@ -9,6 +9,8 @@
 [4. Description of the module file feature](#4-description-of-the-module-file-feature)\
 [5. Conclusion](#5-conclusion)
 
+---
+
 # 👍 SBBFU Project :
 ##### Hi :wave:
 ##### Thank you for looking for us. The project is called SBBFU, which means "Special Black Box For U."
