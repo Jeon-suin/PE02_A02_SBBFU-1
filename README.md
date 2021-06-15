@@ -1,7 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=200&section=header&text=SBBFU%20PROJECT&fontSize=50)
 
 ###### PE02_A02
-[1. Introduction](#1.-introduction)
+[1. Introduction](#1.-Introduction)
 
 # 👍 SBBFU Project :
 ##### Hi :wave:
