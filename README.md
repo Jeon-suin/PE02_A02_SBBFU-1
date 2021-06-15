@@ -13,7 +13,9 @@
 ##### Hi :wave:
 ##### Thank you for looking for us. The project is called SBBFU, which means "Special Black Box For U."
 ##### Analyze customer-provided data and provide results.
+
 ---
+
 ## 1. Introduction
 #### - PE2 : SBBFU Project
 We aim to develop Python-based data analysis software. 
@@ -24,7 +26,9 @@ The goal is to develop software that can analyze wafer scale data in detail.
 |Jeon su in:girl:|qqy78@hanmail.net|<img src = "https://user-images.githubusercontent.com/84078034/121825406-2aa98400-cced-11eb-82d7-3fbbb3cdff28.png" width = "100" height = "100">|
 |Park seoung min:boy:|psm401@hanyang.ac.kr|<img src = "https://user-images.githubusercontent.com/84078034/121825519-e074d280-cced-11eb-8507-995dd571eaf4.png" width = "100" height = "100">|
 |Bae joo han :boy:|joohan0115@hanyang.ac.kr|<img src = "https://user-images.githubusercontent.com/84078034/121825720-e7501500-ccee-11eb-9093-d83795514a94.png" width = "100" height = "100">|
+
 ---
+
 ## 2. Objective of project
  #### Detailed project 
  The main task is to receive data from the customer and then receive the request.
@@ -40,7 +44,9 @@ In order to develop such analysis software, a black box(software) that implement
 First, extract only the file named 'LMZ' from the file that the customer gave us. 
 
 Then, after analyzing the raw data given by the customer using various modules, make a csv file.
+
 ---
+
 ## 3. Project information
 
 ####
@@ -54,6 +60,7 @@ Then, after analyzing the raw data given by the customer using various modules, 
 	+ After select the data you want to analyze, select various options such as wafer, die option, figure shape (show figure, save figure, save csv) and press run button.
 
 ---
+
 ## 4. Description of the module file feature
 
 #### Fitting module
@@ -64,7 +71,9 @@ Then, after analyzing the raw data given by the customer using various modules, 
  - It contains a variety of data information, including Lot, Wafer, and Operator etc.
  - Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
  - Save this data frome in csv format in the 'Result' folder.
+ - 
  ---
+ 
 ## 5. Conclusion
  - After passing the law data provided by the customer, they use the ‘fitting module’ to fit.
  - Save this fitting figure in the ‘result’ folder.
