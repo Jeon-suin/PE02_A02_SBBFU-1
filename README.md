@@ -57,7 +57,7 @@ Then, after analyzing the raw data given by the customer using various modules, 
 * How to Run
   + Choose the raw data folder customer want to analyze.
    
-	+ After select the data you want to analyze, select various options such as wafer, die option, figure shape (show figure, save figure, save csv) and press run button.
+  + After select the data you want to analyze, select various options such as wafer, die option, figure shape (show figure, save figure, save csv) and press run button.
 
 ---
 
@@ -71,7 +71,7 @@ Then, after analyzing the raw data given by the customer using various modules, 
  - It contains a variety of data information, including Lot, Wafer, and Operator etc.
  - Create a dataframe so that the meausured information in the xml file can be viewed at a glance.
  - Save this data frome in csv format in the 'Result' folder.
- - 
+ 
  ---
  
 ## 5. Conclusion
