@@ -47,7 +47,7 @@
 >   + Choose the raw data folder customer want to analyze.
 >   + Choose to automatically start data analysis.
 >   
->	 + After select the data you want to analyze, select various options such as wafer, die option, figure shape (show figure, save figure, save csv) and press run button.
+>	 + After select the data you want to analyze, select various options such as **wafer, die option, figure shape (show figure, save figure, save csv)** and press run button.
 <img src = "https://user-images.githubusercontent.com/84078034/121799780-f55b5280-cc68-11eb-859f-a0cf73b37ee1.png" width="350" height="300">
 
 
