@@ -20,8 +20,7 @@ def poly(x, y, degree):
     results = ssreg / sstot
     return results
 
-def csv_mod(filename):
-
+def csv_mod(filename,version ,custom_csv):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -86,10 +85,27 @@ def csv_mod(filename):
         if WL_analy[k]['symbol'] == 'WL':
             WL_list.append(WL_analy[k].text)
 
-    df = pd.DataFrame(columns=['Lot', 'Wafer', 'Mask', 'TestSite' , 'Name', 'Date', 'Script ID',
-     'Script Version', 'Script Owner', 'Operator', 'Row','Column',
-     'ErrorFlag', 'Error description','Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
-     'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
+    df = pd.DataFrame(columns=['Lot', 'Wafer', 'Mask', 'TestSite', 'Name', 'Date', 'Script ID',
+                               'Script Version', 'Script Owner', 'Operator', 'Row', 'Column',
+                               'ErrorFlag', 'Error description', 'Analysis Wavelength', 'Rsq of Ref.spectrum (Nth)',
+                               'Max transmission of Ref. spec. (dB)', 'Rsq of IV', 'I at -1V [A]', 'I at 1V [A]'])
 
-    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date,'process LMZ', '0.1', 'A02' ,'JoohanBae',Row, Column, error_flag_list[0],
-                 error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0],IVdic[1.0]]
+    df.loc[0] = [Lot, Wafer, Mask, TestSite, Name, Date, 'process LMZ', '0.1', 'A02',
+                 'JoohanBae,Parkseoungmin,Jeonsuin', Row, Column,
+                 error_flag_list[0],
+                 error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
+
+
+
+    if custom_csv == 1:
+        location = 'process_Result%s.csv'%version
+        # if datetime.datetime.now().minute in os.path.basename('.\\res\\csv\\'):
+        if not os.path.exists('.\\res\\csv\\%s'%location):
+            try:
+                os.makedirs('.\\res\\csv\\')
+            except:
+                FileExistsError
+                pass
+            df.to_csv('.\\res\\csv\\%s'%location, mode='w', index=False)
+        else:
+            df.to_csv('.\\res\\csv\\%s'%location, mode='a', index=False, header=False)
