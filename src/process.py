@@ -7,7 +7,6 @@ from lmfit import Model
 from numpy import exp
 import statsmodels.api as sm
 import os
-import datetime
 import warnings
 
 warnings.filterwarnings(action='ignore')
@@ -190,7 +189,7 @@ def fitting(filename, custom_a, custom_w):
 #######################################################################################################################
 
 
-def csv_mod(filename, custom_csv):
+def csv_mod(filename,version ,custom_csv):
     fp = open(filename, "r")
     soup = BeautifulSoup(fp, "html.parser")
 
@@ -266,16 +265,19 @@ def csv_mod(filename, custom_csv):
                  error_description[0], WL_list[0], Rsqref, max(refy), Rsq, IVdic[-1.0], IVdic[1.0]]
 
 
+
     if custom_csv == 1:
-
-        now = datetime.datetime.now()
-        num = now.strftime('%Y%m%d-%H%M%S')
-        version = str(num)
-
-        if not os.path.exists('.\\res\\csv\\process_Result%s.csv'%version):
-            df.to_csv('.\\res\\csv\\process_Result%s.csv'%version, mode='w', index=False)
+        location = 'process_Result%s.csv'%version
+        # if datetime.datetime.now().minute in os.path.basename('.\\res\\csv\\'):
+        if not os.path.exists('.\\res\\csv\\%s'%location):
+            try:
+                os.makedirs('.\\res\\csv\\')
+            except:
+                FileExistsError
+                pass
+            df.to_csv('.\\res\\csv\\%s'%location, mode='w', index=False)
         else:
-            df.to_csv('.\\res\\csv\\process_Result%s.csv'%version, mode='a', index=False, header=False)
+            df.to_csv('.\\res\\csv\\%s'%location, mode='a', index=False, header=False)
 
 
 
