@@ -56,6 +56,9 @@ def Measured(filename,custom_a,custom_w,version):
         plt.savefig('.\\res\\figure%s\\%s\\%s\\%s\\%s.png' % (version, filename.split('\\')[2], filename.split('\\')[3],
                                                               filename.split('\\')[4], fname))
 
+        if custom_w == 0:
+            plt.show(block=False)
+            plt.close()
     # show figure 옵션
 
     if custom_w == 1:
