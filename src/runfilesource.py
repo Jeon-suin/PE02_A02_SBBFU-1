@@ -59,7 +59,7 @@ def checkbox(file_path,version):
     def clicked5():
         messagebox.showwarning('Error', 'I-V fitting is invalid')
 
-    def check_status(file_path = file_path,version =version):
+    def check_status(file_path = file_path):
         file_path = '%s'%file_path
         d = status4_print()
         e = status5_print()
@@ -363,17 +363,17 @@ def checkbox(file_path,version):
 
                         # fitting 실행
                         if combo1.get() == 'All figure':
-                            process.fitting(i, a, b)
+                            process.fitting(i, a, b,version)
                         elif combo1.get() == 'Transmission spectra':
-                            Measured_Spectra.Measured(i, a, b)
+                            Measured_Spectra.Measured(i, a, b,version)
                         elif combo1.get() == 'IV raw dat':
                             if Rsqu.Rsqu(i) < 0.95:
                                 clicked5()
-                            IVfitting.IVfitting(i, a, b)
+                            IVfitting.IVfitting(i, a, b,version)
                         elif combo1.get() == 'Processed and fitting':
-                            Ref_fitting.Ref_fitting(i, a, b)
+                            Ref_fitting.Ref_fitting(i, a, b,version)
                         else:
-                            Processed_spectra.Pro_spe(i, a, b)
+                            Processed_spectra.Pro_spe(i, a, b,version)
 
                         # csv 실행
                         process.csv_mod(i,version,c)
