@@ -9,7 +9,7 @@ warnings.filterwarnings(action='ignore')
 import os
 import time
 
-def IVfitting(filename,custom_a,custom_w):
+def IVfitting(filename,custom_a,custom_w, version):
 
     fp = open(filename, "r")
 
@@ -63,18 +63,22 @@ def IVfitting(filename,custom_a,custom_w):
     fig.set_size_inches((27,15), forward=False)
 
     if custom_a == 1:
-        if not os.path.exists('.\\res\\figure'):
-            os.makedirs('.\\res\\figure')
-        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
-            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
-            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                                  filename.split('\\')[4])):
-            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                            filename.split('\\')[4]))
-        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                                filename.split('\\')[4], fname))
+        if not os.path.exists('.\\res\\figure%s' % version):
+            os.makedirs('.\\res\\figure%s' % version)
+        if not os.path.exists('.\\res\\figure%s\\{}' % version.format(filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure%s\\{}' % version.format(filename.split('\\')[2]))
+        if not os.path.exists(
+                '.\\res\\figure%s\\{}\\{}' % version.format(filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure%s\\{}\\{}' % version.format(filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists(
+                '.\\res\\figure%s\\{}\\{}\\{}' % version.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                filename.split('\\')[4])):
+            os.makedirs(
+                '.\\res\\figure%s\\{}\\{}\\{}' % version.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                filename.split('\\')[4]))
+        plt.savefig(
+            '.\\res\\figure%s\\{}\\{}\\{}\\{}.png' % version.format(filename.split('\\')[2], filename.split('\\')[3],
+                                                                    filename.split('\\')[4], fname))
         if custom_w == 0:
             plt.show(block=False)
             plt.close()

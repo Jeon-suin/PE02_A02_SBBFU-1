@@ -16,7 +16,7 @@ def poly(x, y, degree):
     results = ssreg / sstot
     return results
 
-def Ref_fitting(filename,custom_a,custom_w):
+def Ref_fitting(filename,custom_a,custom_w,version):
 
     fp = open(filename, "r")
 
@@ -62,19 +62,19 @@ def Ref_fitting(filename,custom_a,custom_w):
     fig.set_size_inches((27,15), forward=False)
 
     if custom_a == 1:
-        if not os.path.exists('.\\res\\figure'):
-            os.makedirs('.\\res\\figure')
-        if not os.path.exists('.\\res\\figure\\{}'.format(filename.split('\\')[2])):
-            os.makedirs('.\\res\\figure\\{}'.format(filename.split('\\')[2]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3])):
-            os.makedirs('.\\res\\figure\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3]))
-        if not os.path.exists('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                                  filename.split('\\')[4])):
-            os.makedirs('.\\res\\figure\\{}\\{}\\{}'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                            filename.split('\\')[4]))
-        plt.savefig('.\\res\\figure\\{}\\{}\\{}\\{}.png'.format(filename.split('\\')[2], filename.split('\\')[3],
-                                                                filename.split('\\')[4], fname))
-
+        if not os.path.exists('.\\res\\figure%s' % version):
+            os.makedirs('.\\res\\figure%s' % version)
+        if not os.path.exists('.\\res\\figure%s\\%s' % (version, filename.split('\\')[2])):
+            os.makedirs('.\\res\\figure%s\\%s' % (version, filename.split('\\')[2]))
+        if not os.path.exists('.\\res\\figure%s\\%s\\%s' % (version, filename.split('\\')[2], filename.split('\\')[3])):
+            os.makedirs('.\\res\\figure%s\\%s\\%s' % (version, filename.split('\\')[2], filename.split('\\')[3]))
+        if not os.path.exists(
+                '.\\res\\figure%s\\%s\\%s\\%s' % (version, filename.split('\\')[2], filename.split('\\')[3],
+                                                  filename.split('\\')[4])):
+            os.makedirs('.\\res\\figure%s\\%s\\%s\\%s' % (version, filename.split('\\')[2], filename.split('\\')[3],
+                                                          filename.split('\\')[4]))
+        plt.savefig('.\\res\\figure%s\\%s\\%s\\%s\\%s.png' % (version, filename.split('\\')[2], filename.split('\\')[3],
+                                                              filename.split('\\')[4], fname))
     # show figure 옵션
 
     if custom_w == 1:
