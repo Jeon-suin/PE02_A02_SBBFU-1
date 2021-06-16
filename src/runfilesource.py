@@ -132,11 +132,11 @@ def checkbox(file_path,version):
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 0 and f == 1 and g == 1 and h == 0:
-                file_path0 = dl.data(file_path,'D24')
+                file_path0 = dl.data(file_path,'D23')
                 xml = []
                 for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
-                file_path1 = dl.data(file_path,'D23')
+                file_path1 = dl.data(file_path,'D24')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
 
@@ -167,10 +167,10 @@ def checkbox(file_path,version):
                 xml = []
                 for filename in glob.glob(file_path0, recursive=True):
                     xml.append(filename)
-                file_path1 = dl.data(file_path,'D24')
+                file_path1 = dl.data(file_path,'D23')
                 for filename in glob.glob(file_path1, recursive=True):
                     xml.append(filename)
-                file_path2 = dl.data(file_path,'D23')
+                file_path2 = dl.data(file_path,'D24')
                 for filename in glob.glob(file_path2, recursive=True):
                     xml.append(filename)
             elif d == 0 and e == 1 and f == 1 and g == 1 and h == 0:
